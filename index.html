@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090909">
+<meta name="description" content="POIROT × AZURA — perjalanan bersama, dari pertemuan pertama hingga hari ini.">
+<title>POIROT × AZURA — Our Little Universe</title>
+<style>
+:root{--bg:#090909;--panel:#141212;--panel2:#1d1718;--red:#e50914;--rose:#f0b9bf;--muted:#b7adae;--cream:#f3e8e1;--gold:#c7a878;--line:#39282b}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:78px}
+body{margin:0;background:var(--bg);color:#f7f3f2;font:15px/1.65 Arial,Helvetica,sans-serif;overflow-x:hidden}
+button,input,textarea{font:inherit}button,a{-webkit-tap-highlight-color:transparent}button{cursor:pointer}a{color:inherit;text-decoration:none}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--rose);outline-offset:4px}
+::selection{background:var(--red);color:white}
+.nav{height:70px;position:fixed;z-index:30;inset:0 0 auto;display:flex;align-items:center;gap:28px;padding:0 5%;background:linear-gradient(#080808ed,#08080820);transition:.25s}
+.nav.scrolled{background:#090909f5;border-bottom:1px solid #ffffff10;backdrop-filter:blur(14px)}
+.brand{font-weight:900;font-size:22px;letter-spacing:1px;color:var(--red);white-space:nowrap}.brand span{color:#fff;font-weight:400}
+.navlinks{display:flex;gap:19px;color:#ddd;font-size:12px}.navlinks a:hover{color:var(--rose)}
+.navright{margin-left:auto;display:flex;align-items:center;gap:9px}
+.smallbtn{background:#171313;border:1px solid #ffffff24;color:#fff;border-radius:50%;width:36px;height:36px;display:grid;place-items:center}
+.smallbtn:hover{border-color:#fff}
+.search{width:0;opacity:0;overflow:hidden;transition:.25s}.search.open{width:165px;opacity:1}.search input{width:100%;padding:8px 10px;background:#111;border:1px solid #766568;color:#fff}
+.hero{min-height:680px;height:94svh;max-height:880px;display:flex;align-items:flex-end;padding:120px 5% 100px;position:relative;isolation:isolate;background:#190f12;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:-2;background:center 35%/cover no-repeat;transform:scale(1.02);animation:slowzoom 22s ease-in-out infinite alternate}
+.hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#080707f5 0%,#080707bf 40%,#08070716 85%),linear-gradient(0deg,#090909 0%,transparent 65%),linear-gradient(180deg,#09090965,transparent 35%)}
+.hero-content{max-width:680px;animation:rise .8s both}
+.kicker{color:#efb5ba;text-transform:uppercase;letter-spacing:3px;font-size:10px;font-weight:800;display:flex;gap:10px;align-items:center}.kicker:before{content:"";width:25px;height:2px;background:var(--red)}
+.hero h1{font-size:clamp(47px,8vw,96px);letter-spacing:-4px;line-height:.94;margin:18px 0;text-transform:uppercase}.hero h1 span{display:block;color:var(--red)}
+.hero-meta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;color:#ded4d4;font-size:12px;margin:18px 0}
+.pill{border:1px solid #ffffff70;padding:2px 7px;font-size:9px;letter-spacing:1px}
+.hero p{max-width:550px;color:#e3d9d9;font-size:15px;line-height:1.85;margin:0 0 24px}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn{border:0;border-radius:4px;padding:12px 18px;font-weight:800;font-size:13px;display:inline-flex;align-items:center;gap:9px;justify-content:center;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}.primary{background:#f5f3f3;color:#111}.primary:hover{background:#ddd}.secondary{background:#ffffff2c;color:white}.secondary:hover{background:#ffffff48}.outline{background:transparent;color:white;border:1px solid #ffffff50}
+.hero-foot{margin-top:24px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#c1afb1}
+main{padding-bottom:30px}.section{padding:26px 5% 18px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:15px;margin-bottom:17px}.section h2{font-size:clamp(20px,2.6vw,28px);line-height:1.2;margin:0;letter-spacing:-.5px}.sub{color:#a99fa0;font-size:12px;margin-top:6px}.quiet-link{border-bottom:1px solid #827577;padding-bottom:3px;color:#d5cacc;font-size:11px;white-space:nowrap}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+.card{background:var(--panel);border:1px solid #ffffff0c;border-radius:6px;overflow:hidden;min-width:0;transition:transform .25s,box-shadow .25s;cursor:pointer}
+.card:hover{transform:translateY(-5px);box-shadow:0 18px 40px #0008}
+.card-image{height:clamp(145px,20vw,245px);position:relative;background:#24171a;overflow:hidden}
+.card-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}.card:hover img{transform:scale(1.055)}
+.card-image:after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,#080707bf)}
+.image-caption{position:absolute;z-index:1;left:12px;bottom:10px;font-size:9px;letter-spacing:2px;color:#f3c4c7;text-transform:uppercase}
+.card-body{padding:13px}.card-top{display:flex;justify-content:space-between;gap:8px;align-items:start}.card h3{font-size:15px;line-height:1.3;margin:0 0 6px}.card p{font-size:11px;line-height:1.65;color:#b7acad;margin:0}.card-actions{display:flex;justify-content:space-between;align-items:center;margin-top:12px;gap:8px}.tag{font-size:9px;letter-spacing:1px;text-transform:uppercase;border:1px solid #633a40;color:#efb6bc;padding:4px 6px}.heart{border:0;background:none;color:#bbb;font-size:21px;padding:0 4px}.heart.active{color:#ff4b60}.progress{height:3px;background:#443a3b;border-radius:5px;margin-top:12px;overflow:hidden}.progress span{display:block;background:var(--red);height:100%;transition:width .3s}
+.feature{margin:35px 5%;display:grid;grid-template-columns:1fr 1fr;min-height:330px;border:1px solid #c7a87842;border-radius:7px;overflow:hidden;background:linear-gradient(120deg,#26171a,#100e0f)}
+.feature-copy{padding:clamp(25px,5vw,56px);display:flex;flex-direction:column;align-items:flex-start;justify-content:center}.gold{font-size:10px;color:var(--gold);letter-spacing:3px;font-weight:800}.feature h2{font-size:clamp(30px,4vw,48px);line-height:1.05;margin:14px 0}.feature p{font-size:13px;color:#c9bfc0;line-height:1.9;max-width:460px}.feature-img{min-height:260px;background:center/cover no-repeat;position:relative}.feature-img:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#26171a,transparent 50%),linear-gradient(0deg,#100e0f22,#100e0f22)}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:15px}.person{display:grid;grid-template-columns:36% 1fr;min-height:230px;border:1px solid #ffffff12;border-radius:7px;overflow:hidden;background:linear-gradient(135deg,#211719,#111)}.person-img{position:relative;min-height:230px;background:#25171a}.person-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.person-copy{padding:20px;align-self:center}.person-copy .label{font-size:9px;color:#e36c75;letter-spacing:2px;font-weight:bold}.person-copy h3{font-size:clamp(19px,2.4vw,27px);margin:8px 0}.person-copy p{font-size:12px;line-height:1.75;color:#c0b6b7;margin:0 0 12px}.textbtn{background:none;border:0;border-bottom:1px solid #807476;color:#eee;padding:0 0 4px;font-size:11px}
+.quote{margin:32px 5%;padding:34px 7%;border-left:3px solid var(--red);background:linear-gradient(100deg,#211417,#100e0f)}.quote-mark{font:70px/.6 Georgia;color:#9e2732}.quote blockquote{font:italic clamp(21px,3vw,32px)/1.5 Georgia,serif;margin:15px 0;max-width:900px}.quote cite{font-style:normal;color:#bda9ac;font-size:10px;letter-spacing:2px;text-transform:uppercase}
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.moment{padding:20px;background:#171314;border-top:2px solid #8f222d;border-radius:3px}.moment .num{font-size:10px;letter-spacing:2px;color:#ed7a83;font-weight:bold}.moment h3{font-size:16px;margin:9px 0}.moment p{font-size:12px;color:#bdb2b3;line-height:1.8;margin:0}
+.gallery{display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:180px 180px;gap:10px}.gallery-item{position:relative;overflow:hidden;border-radius:5px;background:#201517;cursor:pointer}.gallery-item:first-child{grid-row:span 2}.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .45s;display:block}.gallery-item:hover img{transform:scale(1.06)}.gallery-item:after{content:"";position:absolute;inset:40% 0 0;background:linear-gradient(transparent,#090909cf)}.gallery-item span{position:absolute;z-index:1;bottom:12px;left:13px;font-size:12px;font-weight:bold}
+.letter{margin:30px 5%;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;padding:clamp(24px,5vw,52px);border:1px solid #ffffff15;border-radius:8px;background:linear-gradient(125deg,#28171a,#110e0f 70%)}.letter h2{font-size:clamp(29px,4vw,45px);line-height:1.08;margin:12px 0}.letter p{color:#c9bfc0;font-size:13px;line-height:1.9;max-width:540px}.envelope{width:min(100%,285px);aspect-ratio:1.3;margin:auto;border:0;position:relative;background:linear-gradient(140deg,#77252f,#381116);box-shadow:0 20px 40px #0008;transform:rotate(-4deg);transition:.3s}.envelope:hover{transform:rotate(0) translateY(-4px)}.envelope:before{content:"";position:absolute;inset:0;background:linear-gradient(145deg,transparent 49.4%,#a34b54 50%,transparent 50.6%),linear-gradient(35deg,transparent 49.4%,#4e171e 50%,transparent 50.6%)}.seal{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:57px;height:57px;border:3px double #7b4c2c;border-radius:50%;background:#d0b17a;color:#3d1015;display:grid;place-items:center;font:18px Georgia}
+.customize{margin:30px 5%;padding:24px;background:#141111;border:1px solid #ffffff14;border-radius:7px}.customize summary{font-weight:bold;cursor:pointer}.customize p{font-size:12px;color:#b9adae}.customize-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:17px}.field{display:flex;flex-direction:column;gap:6px}.field label{font-size:11px;color:#d7cacc}.field input,.field textarea{width:100%;background:#090909;color:#fff;border:1px solid #4b373a;border-radius:4px;padding:10px}.field textarea{min-height:80px;resize:vertical}.field.full{grid-column:1/-1}.field small{font-size:10px;color:#93888a}
+.footer{padding:35px 5% 28px;border-top:1px solid #2b2022;color:#82797a;font-size:10px;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}.footer strong{color:#d4c7c8;letter-spacing:2px}
+.modal{position:fixed;inset:0;z-index:80;display:none;align-items:center;justify-content:center;padding:15px;background:#000d;backdrop-filter:blur(8px)}.modal.show{display:flex;animation:fade .2s}.modal-card{position:relative;width:min(760px,100%);max-height:90svh;overflow:auto;background:#151112;border:1px solid #50353a;border-radius:8px;box-shadow:0 25px 90px #000}.modal-banner{height:230px;position:relative;background:#26171a}.modal-banner img{width:100%;height:100%;object-fit:cover}.modal-banner:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#151112,transparent 80%)}.close{position:absolute;z-index:2;right:12px;top:12px;border:0;border-radius:50%;width:36px;height:36px;background:#111;color:#fff;font-size:21px}.modal-info{position:relative;margin-top:-34px;padding:0 28px 28px}.modal-info h2{font-size:clamp(26px,5vw,39px);margin:0 0 10px}.modal-info p{white-space:pre-line;color:#c9bfc0;font-size:14px;line-height:1.9}.modal-kicker{font-size:10px;color:#e86a73;letter-spacing:2px;font-weight:bold}.letter-paper{background:#eee4d7;color:#352d2a;padding:clamp(22px,5vw,43px);font:15px/1.9 Georgia,serif;border-radius:3px}.letter-paper h2{font-weight:normal;font-style:italic;color:#70252c}.letter-paper p{color:#453a35}
+.toast{position:fixed;z-index:100;left:50%;bottom:22px;transform:translate(-50%,18px);opacity:0;pointer-events:none;background:#f3e8e1;color:#151010;padding:11px 16px;border-radius:4px;font-size:12px;font-weight:bold;transition:.25s;max-width:90%;text-align:center}.toast.show{opacity:1;transform:translate(-50%,0)}
+.music{position:fixed;z-index:35;right:15px;bottom:15px;display:flex;align-items:center;gap:8px;padding:7px 10px 7px 7px;background:#1a1415;border:1px solid #59353b;border-radius:30px;box-shadow:0 8px 25px #0009;font-size:10px}.disc{width:29px;height:29px;border-radius:50%;background:conic-gradient(#e50914,#49141a,#e50914);display:grid;place-items:center}.disc:after{content:"";width:9px;height:9px;background:#150f10;border:2px solid #e9aeb3;border-radius:50%}.disc.playing{animation:spin 4s linear infinite}.music button{border:0;background:none;color:#fff;padding:4px;font-size:14px}
+.empty{display:none;color:#aaa;padding:30px;text-align:center}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}@keyframes fade{from{opacity:0}to{opacity:1}}@keyframes spin{to{transform:rotate(360deg)}}@keyframes slowzoom{from{transform:scale(1.02)}to{transform:scale(1.09)}}
+@media(max-width:850px){.nav{padding:0 4%;gap:15px}.navlinks{gap:12px}.navlinks a:nth-child(4){display:none}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.card-image{height:clamp(165px,32vw,250px)}.feature,.letter{margin-left:4%;margin-right:4%}.person{grid-template-columns:34% 1fr}.person-copy{padding:15px}.gallery{grid-template-rows:150px 150px}}
+@media(max-width:560px){.nav{height:61px;gap:9px;padding:0 3%}.brand{font-size:16px;letter-spacing:.2px}.navlinks{font-size:10px;gap:9px}.navlinks a:nth-child(2),.navlinks a:nth-child(3){display:none}.navright{gap:5px}.smallbtn{width:32px;height:32px}.search.open{width:110px}.hero{height:700px;min-height:630px;padding:105px 5% 77px}.hero:before{background:linear-gradient(90deg,#080707e8,#0807076b),linear-gradient(0deg,#090909 0%,transparent 73%),linear-gradient(180deg,#09090970,transparent 30%)}.hero h1{font-size:clamp(43px,12vw,66px);letter-spacing:-2.5px}.hero p{font-size:13px}.hero-meta{font-size:10px;gap:7px}.hero-foot{font-size:9px}.section{padding:22px 4% 14px}.section-head{align-items:start}.section h2{font-size:20px}.cards{gap:9px}.card-image{height:clamp(145px,44vw,220px)}.card-body{padding:10px}.card h3{font-size:13px}.card p{font-size:10px}.card-actions{margin-top:9px}.tag{font-size:8px}.feature{grid-template-columns:1fr;margin-top:25px}.feature-img{grid-row:1;min-height:175px;background-position:center 40%}.feature-img:after{background:linear-gradient(0deg,#26171a20,#26171a20)}.feature-copy{padding:24px}.feature h2{font-size:34px}.duo{grid-template-columns:1fr}.person{min-height:190px;grid-template-columns:34% 1fr}.person-img{min-height:190px}.person-copy{padding:13px}.person-copy h3{font-size:20px}.person-copy p{font-size:11px}.quote{margin:25px 4%;padding:27px 22px}.quote blockquote{font-size:22px}.timeline{grid-template-columns:1fr}.moment{padding:17px}.gallery{grid-template-rows:130px 130px;gap:7px}.gallery-item span{left:8px;bottom:8px;font-size:10px}.letter{grid-template-columns:1fr;padding:24px 20px;gap:25px}.envelope{max-width:230px}.customize{margin:25px 4%;padding:17px}.customize-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.footer{padding:28px 4%;padding-bottom:65px}.modal{padding:8px}.modal-banner{height:170px}.modal-info{padding:0 19px 22px}.modal-info p{font-size:12px}.music{right:9px;bottom:9px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+/* Shared-story revision: the focus is the relationship and its timeline. */
+.shared-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.shared-card{position:relative;overflow:hidden;min-height:190px;padding:23px;background:linear-gradient(145deg,#241619,#121011);border:1px solid #ffffff12;border-top:2px solid #a62b38;border-radius:5px}
+.shared-card:after{content:"";position:absolute;width:150px;height:150px;right:-65px;bottom:-85px;border:1px solid #8f303a55;border-radius:50%;box-shadow:0 0 0 18px #8f303a12,0 0 0 36px #8f303a08;pointer-events:none}
+.shared-index{font-size:9px;letter-spacing:2px;color:#e88b93}
+.shared-card h3{font-size:19px;line-height:1.3;margin:16px 0 9px}
+.shared-card p{font-size:12px;line-height:1.85;color:#c0b5b6;margin:0;max-width:420px}
+.journey-section{padding-top:35px}
+.journey-layout{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(260px,.75fr);gap:22px;align-items:start}
+.journey-line{position:relative;padding:6px 0 8px 2px}
+.journey-line:before{content:"";position:absolute;left:21px;top:20px;bottom:20px;width:1px;background:linear-gradient(#b83b47,#6e252d 80%,transparent)}
+.journey-step{position:relative;display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;padding:0 0 22px}
+.journey-dot{position:relative;z-index:1;width:42px;height:42px;display:grid;place-items:center;border:1px solid #a8444d;border-radius:50%;background:#1c1214;color:#f0b0b6;font:12px Georgia,serif;box-shadow:0 0 0 5px #0b090a}
+.journey-copy{padding:3px 0 17px;border-bottom:1px solid #ffffff12}
+.journey-date{font-size:9px;letter-spacing:1.8px;color:#e17a84;font-weight:bold}
+.journey-copy h3{font-size:18px;margin:8px 0}
+.journey-copy p{font-size:12px;line-height:1.9;color:#bdb1b2;margin:0}
+.future-step .journey-dot{border-style:dashed;color:#c3a0a4}
+.first-chat-card{position:sticky;top:85px;padding:14px;background:linear-gradient(150deg,#211517,#100e0f);border:1px solid #6d343b;border-radius:7px;box-shadow:0 20px 45px #0004}
+.chat-card-top{display:flex;justify-content:space-between;gap:8px;padding:4px 2px 13px;color:#e2a0a6;font-size:8px;letter-spacing:1.5px}
+.chat-photo-frame{min-height:265px;aspect-ratio:4/5;display:grid;place-items:center;overflow:hidden;border:1px dashed #92515a;background:repeating-linear-gradient(135deg,#201517,#201517 12px,#24191b 12px,#24191b 24px);border-radius:4px}
+.chat-placeholder{text-align:center;padding:24px;color:#d5c2c4;max-width:280px}
+.placeholder-mark{width:44px;height:44px;display:grid;place-items:center;margin:0 auto 15px;border:1px solid #a75a63;border-radius:50%;font-size:25px;color:#e6a0a7}
+.chat-placeholder strong{display:block;font-size:14px;line-height:1.5}
+.chat-placeholder p{font-size:11px;line-height:1.7;color:#a99b9d}
+.chat-photo-frame img{width:100%;height:100%;max-height:570px;object-fit:contain;background:#0d0b0c}
+.upload-chat{display:block;text-align:center;margin-top:12px;padding:11px 12px;background:#e8dfe0;color:#1a1011;font-size:11px;font-weight:bold;border-radius:3px;cursor:pointer;transition:.2s}
+.upload-chat:hover{background:#fff}
+.chat-note{font-size:10px;line-height:1.6;color:#938688;margin:9px 1px 0}
+.chat-caption{margin-top:17px;padding:14px 10px 5px;border-top:1px solid #ffffff18;text-align:center}
+.chat-caption span{font-size:8px;letter-spacing:2px;color:#cf7b84}
+.chat-caption p{font:italic 15px/1.7 Georgia,serif;color:#d8c8ca;margin:9px 0 0}
+@media(max-width:850px){.shared-grid{grid-template-columns:1fr}.shared-card{min-height:0}.journey-layout{grid-template-columns:1fr}.first-chat-card{position:relative;top:auto;max-width:520px;width:100%;margin:0 auto}.chat-photo-frame{min-height:220px;aspect-ratio:4/3}}
+@media(max-width:560px){.shared-card{padding:19px}.shared-card h3{font-size:17px}.journey-step{grid-template-columns:36px minmax(0,1fr);gap:11px}.journey-dot{width:34px;height:34px;font-size:10px}.journey-line:before{left:17px}.journey-copy h3{font-size:16px}.journey-copy p{font-size:11px}.first-chat-card{padding:10px}.chat-photo-frame{aspect-ratio:3/4;min-height:230px}}
+
+</style>
+</head>
+<body>
+<header class="nav" id="nav">
+  <a class="brand" href="#home">POIROT <span>×</span> AZURA</a>
+  <nav class="navlinks" aria-label="Navigasi"><a href="#home">Beranda</a><a href="#stories">Cerita</a><a href="#moments">Momen</a><a href="#letter">Surat</a></nav>
+  <div class="navright"><div class="search" id="searchWrap"><input id="search" type="search" placeholder="Cari cerita…" aria-label="Cari cerita"></div><button class="smallbtn" id="searchBtn" aria-label="Buka pencarian" title="Cari">⌕</button><button class="smallbtn" id="favBtn" aria-label="Tampilkan favorit" title="Favorit">♡</button></div>
+</header>
+<section class="hero" id="home">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-content">
+    <div class="kicker">OUR STORY · FROM THEN TO NOW</div>
+    <h1>POIROT <span>× AZURA</span></h1>
+    <div class="hero-meta"><span>2026</span><span class="pill">PERSONAL ORIGINAL</span><span>Romansa</span><span>•</span><span>Kenangan</span><span>•</span><span>Special Edition</span></div>
+    <p>Ini bukan halaman tentang satu orang saja. Ini tentang kita: bagaimana semuanya dimulai, percakapan yang menyambungkan dua dunia, momen yang tumbuh di antaranya, dan perjalanan yang masih berjalan.</p>
+    <div class="actions"><button class="btn primary" id="startBtn">▶ &nbsp; Mulai Cerita</button><button class="btn secondary" id="aboutBtn">ⓘ &nbsp; Tentang Website Ini</button><button class="btn outline" id="heroFav">♡ &nbsp; Simpan</button></div>
+    <div class="hero-foot">Dua orang · Satu perjalanan · Cerita yang terus berjalan</div>
+  </div>
+</section>
+
+<main>
+<section class="section" id="stories">
+ <div class="section-head"><div><h2>Untuk Diputar Kapan Saja</h2><div class="sub">Pilih satu cerita, lalu nikmati pelan-pelan.</div></div><a href="#allStories" class="quiet-link">Lihat koleksi ↓</a></div>
+ <div class="cards" id="continueCards"></div>
+</section>
+<section class="section" id="allStories">
+ <div class="section-head"><div><h2>Our Collection</h2><div class="sub">Beberapa bagian dari semesta kecil ini.</div></div><span class="quiet-link">POIROT × AZURA</span></div>
+ <div class="cards" id="storyCards"></div><div class="empty" id="empty">Cerita tidak ditemukan. Coba kata lain.</div>
+</section>
+
+<section class="feature">
+ <div class="feature-copy"><div class="gold">SPECIAL FEATURE · 01</div><h2>Little things.<br>Real meaning.</h2><p>Tidak semua hal berharga harus dibuat besar-besaran. Kadang yang paling diingat justru obrolan biasa, perhatian kecil, atau cara seseorang membuat suasana terasa lebih baik.</p><button class="btn secondary" id="featureBtn">Buka bagian spesial ↗</button></div>
+ <div class="feature-img" id="featureImg" role="img" aria-label="Foto dekorasi spesial"></div>
+</section>
+
+<section class="section" id="people">
+ <div class="section-head"><div><h2>What Makes This “Us”</h2><div class="sub">Bukan profil masing-masing, melainkan hal-hal yang terbentuk saat dua cerita berjalan berdampingan.</div></div></div>
+ <div class="shared-grid">
+  <article class="shared-card"><span class="shared-index">01 / THE START</span><h3>Tempat semuanya dimulai</h3><p>Ada titik ketika dua orang yang awalnya punya dunia masing-masing mulai saling mengenal. Bagian ini menyimpan awal cerita kita, bukan hanya siapa yang datang lebih dulu.</p></article>
+  <article class="shared-card"><span class="shared-index">02 / THE IN-BETWEEN</span><h3>Hal-hal yang jadi milik kita</h3><p>Obrolan, candaan, kebiasaan, dan detail kecil yang mungkin biasa bagi orang lain, tetapi punya konteks sendiri saat kita mengingatnya bersama.</p></article>
+  <article class="shared-card"><span class="shared-index">03 / RIGHT NOW</span><h3>Masih berlangsung</h3><p>Website ini bukan kesimpulan tentang kita. Ini semacam penanda waktu: ada yang sudah dilewati, ada yang sedang dijalani, dan masih ada ruang untuk cerita berikutnya.</p></article>
+ </div>
+</section>
+
+<section class="quote"><div class="quote-mark">“</div><blockquote>Some people make ordinary days feel a little less ordinary.</blockquote><cite>Catatan kecil untuk Azura</cite></section>
+
+<section class="section" id="moments">
+ <div class="section-head"><div><h2>Our Little Moments</h2><div class="sub">Galeri visual untuk kenangan, suasana, dan hal yang ingin disimpan.</div></div></div>
+ <div class="gallery" id="gallery">
+  <button class="gallery-item" data-gallery="0" aria-label="Buka foto momen pertama"><img id="gal0" alt="Cahaya senja" loading="lazy"><span>01 / Golden hour</span></button>
+  <button class="gallery-item" data-gallery="1" aria-label="Buka foto momen kedua"><img id="gal1" alt="Bunga" loading="lazy"><span>02 / For you</span></button>
+  <button class="gallery-item" data-gallery="2" aria-label="Buka foto momen ketiga"><img id="gal2" alt="Kota malam" loading="lazy"><span>03 / After hours</span></button>
+  <button class="gallery-item" data-gallery="3" aria-label="Buka foto momen keempat"><img id="gal3" alt="Buku dan kopi" loading="lazy"><span>04 / Slow days</span></button>
+  <button class="gallery-item" data-gallery="4" aria-label="Buka foto momen kelima"><img id="gal4" alt="Langit malam" loading="lazy"><span>05 / Same sky</span></button>
+ </div>
+</section>
+
+<section class="section journey-section" id="timeline">
+ <div class="section-head"><div><h2>From the First Hello to Today</h2><div class="sub">Perjalanan kita, tahap demi tahap. Ubah tanggal dan detailnya agar sesuai dengan cerita yang sebenarnya.</div></div><span class="quiet-link">OUR TIMELINE</span></div>
+ <div class="journey-layout">
+  <div class="journey-line">
+   <article class="journey-step"><div class="journey-dot">01</div><div class="journey-copy"><span class="journey-date">THE BEGINNING · [TANGGAL]</span><h3>Waktu kita pertama bertemu</h3><p>Di antara banyak orang dan banyak cerita, ada satu titik ketika kita mulai saling mengenal. Isi bagian ini dengan tempat, situasi, atau hal yang paling kamu ingat dari pertemuan pertama kita.</p></div></article>
+   <article class="journey-step"><div class="journey-dot">02</div><div class="journey-copy"><span class="journey-date">THE FIRST CHAT · [TANGGAL]</span><h3>Pesan pertama yang membuka cerita</h3><p>Mungkin saat itu kita belum tahu percakapan ini akan menjadi bagian dari perjalanan bersama. Sekarang, pesan sederhana itu punya tempatnya sendiri di sini.</p></div></article>
+   <article class="journey-step"><div class="journey-dot">03</div><div class="journey-copy"><span class="journey-date">GETTING CLOSER · [TANGGAL]</span><h3>Mulai terasa lebih akrab</h3><p>Obrolan yang makin panjang, respons yang mulai familiar, atau hal kecil yang perlahan membuat kita nyaman. Tambahkan momen yang paling menggambarkan fase ini.</p></div></article>
+   <article class="journey-step"><div class="journey-dot">04</div><div class="journey-copy"><span class="journey-date">OUR LITTLE WORLD · [TANGGAL]</span><h3>Hal-hal yang hanya kita pahami</h3><p>Inside joke, panggilan, topik random, atau kebiasaan yang terbentuk tanpa direncanakan. Inilah bagian-bagian kecil yang membuat cerita kita terasa khas.</p></div></article>
+   <article class="journey-step"><div class="journey-dot">05</div><div class="journey-copy"><span class="journey-date">TODAY · SEKARANG</span><h3>Di titik kita hari ini</h3><p>Kita sudah melewati beberapa halaman sejak awal. Tidak semuanya harus sempurna untuk tetap berarti; yang penting, perjalanan ini punya kenangan yang nyata untuk disimpan.</p></div></article>
+   <article class="journey-step future-step"><div class="journey-dot">06</div><div class="journey-copy"><span class="journey-date">NEXT CHAPTER · TO BE CONTINUED</span><h3>Masih ada halaman berikutnya</h3><p>Belum semua hal terjadi, dan memang tidak perlu semuanya diketahui sekarang. Cerita ini akan terus mendapat halaman baru seiring waktu dan pengalaman kita.</p></div></article>
+  </div>
+  <aside class="first-chat-card">
+   <div class="chat-card-top"><span>ARCHIVE 001</span><span>OUR FIRST CHAT</span></div>
+   <div class="chat-photo-frame" id="firstChatFrame">
+    <div class="chat-placeholder" id="chatPlaceholder"><div class="placeholder-mark">＋</div><strong>Screenshot chat pertama kita</strong><p>Letakkan gambar percakapan pertama di sini. Preview akan muncul setelah kamu memilih foto.</p></div>
+    <img id="firstChatImg" alt="Screenshot chat pertama kita" hidden>
+   </div>
+   <label class="upload-chat" for="firstChatUpload">Pilih screenshot</label>
+   <input id="firstChatUpload" type="file" accept="image/*" hidden>
+   <p class="chat-note">Pilih gambar dari perangkatmu. Gambar disimpan di browser ini jika ukuran file memungkinkan; kalau tidak, preview tetap tampil sampai halaman dimuat ulang.</p>
+   <div class="chat-caption"><span>THE FIRST MESSAGE</span><p>“Semua yang panjang pernah dimulai dari sesuatu yang sederhana.”</p></div>
+  </aside>
+ </div>
+</section>
+
+<section class="letter" id="letter">
+ <div><div class="gold">A NOTE FOR OUR STORY</div><h2>For the Pages We Share.</h2><p>Sebuah catatan untuk perjalanan yang kita jalani bersama. Bukan tentang siapa yang paling menonjol, tetapi tentang hal-hal yang kita bangun, kita ingat, dan kita bawa ke halaman berikutnya.</p><button class="btn primary" id="openLetter">✉ &nbsp; Buka Surat</button></div>
+ <button class="envelope" id="envelope" aria-label="Buka surat untuk Azura"><span class="seal">P × A</span></button>
+</section>
+
+<section class="section" id="favorites" hidden><div class="section-head"><div><h2>Daftar Favorit</h2><div class="sub">Cerita yang kamu simpan.</div></div><button class="btn secondary" id="closeFav">Tutup favorit</button></div><div class="cards" id="favCards"></div></section>
+
+<details class="customize">
+ <summary>Personalisasi website ini</summary>
+ <p>Atur nama, kalimat pembuka, dan surat untuk cerita kalian. Timeline masih bisa kamu edit langsung di bagian HTML supaya tanggal serta tahapnya cocok dengan perjalanan kalian. Perubahan form tersimpan di browser perangkat ini.</p>
+ <div class="customize-grid">
+  <div class="field"><label for="namePoi">Nama yang ditampilkan untuk kamu</label><input id="namePoi" value="Hercule Poirot"></div>
+  <div class="field"><label for="nameAzu">Nama yang ditampilkan untuk Azura</label><input id="nameAzu" value="Azura Bell"></div>
+  <div class="field full"><label for="introEdit">Kalimat pembuka</label><textarea id="introEdit">Ini bukan halaman tentang satu orang saja. Ini tentang kita: bagaimana semuanya dimulai, percakapan yang menyambungkan dua dunia, momen yang tumbuh di antaranya, dan perjalanan yang masih berjalan.</textarea></div>
+  <div class="field full"><label for="letterEdit">Isi surat personal</label><textarea id="letterEdit">Azura, aku bikin halaman ini untuk menyimpan cerita yang kita punya—dari awal kita saling mengenal, obrolan yang kita bagi, sampai momen-momen kecil yang ikut membentuk perjalanan ini. Ini bukan cerita tentang aku saja atau kamu saja, tapi tentang hal-hal yang hadir di antara kita. Semoga masih ada banyak halaman baik yang bisa kita tulis setelah ini. — Poirot</textarea><small>Kamu bisa menulis dengan gaya sendiri. Tidak ada teks yang dikirim ke server.</small></div>
+  <div class="field full"><button class="btn primary" id="savePersonal">Simpan perubahan</button></div>
+ </div>
+</details>
+</main>
+<footer class="footer"><div><strong>POIROT × AZURA</strong><p>Website personal buatan penggemar. Tidak berafiliasi dengan Netflix.</p></div><div>Dibuat untuk menyimpan perjalanan kita, dari awal hingga sekarang.</div><div>© 2026 · Our Little Universe</div></footer>
+
+<div class="music" aria-label="Kontrol musik"><div class="disc" id="disc"></div><span id="musicStatus">Musik latar</span><button id="musicPlay" aria-label="Putar musik" title="Putar/jeda">▶</button><button id="musicMute" aria-label="Mute musik" title="Mute/unmute">♪</button></div>
+<audio id="audio" loop preload="none"></audio>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-card"><button class="close" id="closeModal" aria-label="Tutup">×</button><div class="modal-banner"><img id="modalImg" alt=""></div><div class="modal-info" id="modalInfo"></div></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ============================================================
+   EDIT FOTO & MUSIK DI SINI
+   Ganti URL pada PHOTOS dengan URL gambar pilihanmu.
+   Untuk musik: taruh music.mp3 di folder yang sama, lalu isi
+   const MUSIC_FILE = "music.mp3";
+   Website tetap bisa dibuka gratis sebagai satu file HTML.
+   ============================================================ */
+const PHOTOS={
+ hero:"https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1900&q=90",
+ feature:"https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=85",
+ poi:"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=700&q=85",
+ azu:"https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&q=85",
+ g0:"https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1000&q=85",
+ g1:"https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=800&q=85",
+ g2:"https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=800&q=85",
+ g3:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=85",
+ g4:"https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=800&q=85"
+};
+const MUSIC_FILE=""; // Contoh: "music.mp3"
+const STORIES=[
+{id:"s1",n:"01",title:"The First Page",tag:"THE BEGINNING",img:PHOTOS.g0,desc:"Semua hal punya awalnya sendiri. Ini tempat untuk menyimpan bagaimana cerita kalian dimulai.",body:"Tidak ada pembukaan yang harus sempurna. Kadang cerita dimulai dari hal biasa: sapaan singkat, obrolan yang berlanjut, atau rasa nyaman yang tumbuh pelan-pelan. Kalau kamu ingat awal kalian, ubah bagian ini menjadi cerita yang benar-benar milik kalian.",duration:"Chapter 01"},
+{id:"s2",n:"02",title:"A Little About You",tag:"THE DETAILS",img:PHOTOS.g1,desc:"Hal-hal kecil yang membuat Azura jadi dirinya sendiri dan layak dihargai.",body:"Ada banyak hal yang bisa dihargai dari seseorang tanpa harus membuatnya terdengar seperti tokoh dalam cerita. Cara berpikirnya, minatnya, selera humornya, atau caranya melihat dunia. Isi bagian ini dengan detail nyata yang paling kamu suka dari Azura.",duration:"Chapter 02"},
+{id:"s3",n:"03",title:"Our Random Talks",tag:"LITTLE MOMENTS",img:PHOTOS.g3,desc:"Obrolan random yang akhirnya jadi kenangan tersendiri.",body:"Percakapan tidak harus selalu serius supaya berarti. Kadang justru obrolan random, lelucon yang hanya kalian pahami, atau cerita tentang hari yang biasa membuat hubungan terasa dekat. Tambahkan inside joke atau momen kalian di sini.",duration:"Chapter 03"},
+{id:"s4",n:"04",title:"If You Need a Reminder",tag:"A NOTE FOR YOU",img:PHOTOS.g2,desc:"Sebuah pengingat sederhana untuk dibaca saat hari sedang terasa berat.",body:"Azura, semoga kamu ingat bahwa kamu tidak harus melakukan semuanya dengan sempurna. Kamu boleh beristirahat, berubah pikiran, belajar hal baru, dan menjalani hari dengan caramu sendiri. Semoga ada banyak hal baik yang menunggumu, dan semoga kamu tetap memberi ruang untuk dirimu sendiri.",duration:"Chapter 04"},
+{id:"s5",n:"05",title:"A Small Thank You",tag:"JUST BECAUSE",img:PHOTOS.g4,desc:"Ucapan terima kasih tanpa perlu alasan yang dibuat-buat.",body:"Terima kasih sudah menjadi bagian dari cerita ini. Aku menghargai waktu, obrolan, dan momen-momen yang sudah dibagi. Tidak perlu menjadikan semuanya dramatis—kadang mengatakan terima kasih dengan tulus sudah cukup.",duration:"Chapter 05"},
+{id:"s6",n:"06",title:"More to Come",tag:"TO BE CONTINUED",img:PHOTOS.hero,desc:"Bukan akhir cerita. Hanya satu halaman sebelum halaman berikutnya.",body:"Website ini menyimpan beberapa potongan cerita, bukan seluruh cerita. Bagian terbaiknya adalah masih ada banyak hal yang belum terjadi: percakapan baru, pengalaman baru, dan kenangan yang belum punya judul. To be continued.",duration:"Finale · For now"}
+];
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const store={watched:JSON.parse(localStorage.getItem("pa_watched_v2")||"{}"),favorites:JSON.parse(localStorage.getItem("pa_favorites_v2")||"[]"),query:"",letter:localStorage.getItem("pa_letter")||""};
+function persist(){localStorage.setItem("pa_watched_v2",JSON.stringify(store.watched));localStorage.setItem("pa_favorites_v2",JSON.stringify(store.favorites))}
+function esc(x){return String(x).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function storyCard(s){let f=store.favorites.includes(s.id);return `<article class="card" data-story="${s.id}" tabindex="0" role="button" aria-label="Buka ${esc(s.title)}"><div class="card-image"><img src="${s.img}" alt="Gambar untuk ${esc(s.title)}" loading="lazy" onerror="this.style.opacity='.15'"><span class="image-caption">${esc(s.tag)}</span></div><div class="card-body"><div class="card-top"><h3>${esc(s.title)}</h3><span style="color:#887d7e;font-size:10px">${s.n}</span></div><p>${esc(s.desc)}</p><div class="progress"><span style="width:${store.watched[s.id]?100:0}%"></span></div><div class="card-actions"><span class="tag">${esc(s.duration)}</span><button class="heart ${f?'active':''}" data-fav="${s.id}" aria-label="${f?'Hapus dari':'Tambah ke'} favorit">${f?'♥':'♡'}</button></div></div></article>`}
+function render(){const filtered=STORIES.filter(s=>(s.title+" "+s.desc+" "+s.tag).toLowerCase().includes(store.query.toLowerCase()));$("#storyCards").innerHTML=filtered.map(storyCard).join("");$("#continueCards").innerHTML=STORIES.filter(s=>store.watched[s.id]).concat(STORIES.filter(s=>!store.watched[s.id])).slice(0,4).map(storyCard).join("");$("#empty").style.display=filtered.length?"none":"block";$("#favCards").innerHTML=STORIES.filter(s=>store.favorites.includes(s.id)).map(storyCard).join("")||'<p style="color:#b7adae">Belum ada cerita favorit. Tekan ikon hati pada kartu cerita.</p>'}
+function notify(s){let t=$("#toast");t.textContent=s;t.classList.add("show");clearTimeout(notify.t);notify.t=setTimeout(()=>t.classList.remove("show"),2400)}
+function showModal(title,kicker,body,img,letter=false){$("#modalImg").src=img||PHOTOS.hero;$("#modalImg").alt=title;if(letter){$("#modalInfo").innerHTML=`<div class="letter-paper"><div style="font:10px Arial;letter-spacing:2px">A PERSONAL NOTE · POIROT × AZURA</div><h2 id="modalTitle">Untuk Azura,</h2><p id="letterContent"></p><p style="text-align:right;font-style:italic">— ${esc($("#namePoi").value||"Poirot")}</p></div>`;$("#letterContent").textContent=store.letter||$("#letterEdit").value}else{$("#modalInfo").innerHTML=`<div class="modal-kicker">${esc(kicker)}</div><h2 id="modalTitle">${esc(title)}</h2><p>${esc(body)}</p><p style="font-size:10px;letter-spacing:2px;color:#8e8082">POIROT × AZURA · OUR LITTLE UNIVERSE</p>`}$("#modal").classList.add("show");document.body.style.overflow="hidden";$("#closeModal").focus()}
+function closeModal(){ $("#modal").classList.remove("show");document.body.style.overflow=""}
+function openStory(id){let s=STORIES.find(x=>x.id===id);if(!s)return;store.watched[id]=true;persist();render();showModal(s.title,s.tag,s.body,s.img)}
+function toggleFav(id){store.favorites=store.favorites.includes(id)?store.favorites.filter(x=>x!==id):[...store.favorites,id];persist();render();notify(store.favorites.includes(id)?"Ditambahkan ke favorit":"Dihapus dari favorit")}
+document.addEventListener("click",e=>{let f=e.target.closest("[data-fav]");if(f){e.stopPropagation();toggleFav(f.dataset.fav);return}let c=e.target.closest("[data-story]");if(c){openStory(c.dataset.story);return}let p=e.target.closest("[data-person]");if(p){if(p.dataset.person==="poi")showModal($("#namePoi").value,"PART OF THIS STORY","Nama yang kamu pakai di RP, dan ruang untuk memperkenalkan diri dengan kata-katamu sendiri. Kamu bisa mengganti deskripsi ini di file HTML kapan saja.",PHOTOS.poi);else showModal($("#nameAzu").value,"THE OTHER HALF","Azura punya dunianya sendiri, minatnya sendiri, dan caranya sendiri dalam menjalani hari. Isi bagian ini dengan hal-hal yang kamu kagumi secara spesifik dan tulus.",PHOTOS.azu)}let g=e.target.closest("[data-gallery]");if(g){let i=Number(g.dataset.gallery);showModal(["Golden hour","For you","After hours","Slow days","Same sky"][i],"OUR LITTLE MOMENTS",["Warna senja untuk memperlambat hari.","Bunga kecil sebagai simbol perhatian sederhana.","Lampu kota dan malam yang tenang.","Jeda kecil di tengah hari yang sibuk.","Langit yang sama, meski sedang berada di tempat berbeda."][i],Object.values(PHOTOS).filter(Boolean)[i+4]||PHOTOS.hero)}});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal();if((e.key==="Enter"||e.key===" ")&&e.target.matches("[data-story]")){e.preventDefault();openStory(e.target.dataset.story)}});
+$("#closeModal").onclick=closeModal;$("#modal").addEventListener("click",e=>{if(e.target===$("#modal"))closeModal()});
+$("#startBtn").onclick=()=>openStory("s1");$("#aboutBtn").onclick=()=>showModal("Tentang website ini","PERSONAL ORIGINAL","Ini bukan kisah detektif dan bukan situs resmi layanan streaming. Website ini dibuat sebagai arsip perjalanan bersama Poirot dan Azura: dari awal bertemu, chat pertama, hal-hal yang membuat makin akrab, sampai hari ini. Fokusnya bukan satu orang, melainkan cerita yang terbentuk di antara kalian.",PHOTOS.hero);
+$("#featureBtn").onclick=()=>showModal("Little things. Real meaning.","SPECIAL FEATURE","Pilih satu detail kecil yang kamu hargai: obrolan yang membuat tertawa, dukungan di waktu yang pas, atau kebiasaan unik yang membuat seseorang terasa dekat. Ganti teks ini dengan kenangan asli agar lebih personal.",PHOTOS.feature);
+function openLetter(){showModal("Untuk Azura","A PERSONAL NOTE",store.letter||$("#letterEdit").value,PHOTOS.feature,true)}
+$("#openLetter").onclick=openLetter;$("#envelope").onclick=openLetter;
+$("#searchBtn").onclick=()=>{let w=$("#searchWrap");w.classList.toggle("open");if(w.classList.contains("open"))$("#search").focus();else{$("#search").value="";store.query="";render()}};
+$("#search").addEventListener("input",e=>{store.query=e.target.value;render()});
+$("#favBtn").onclick=()=>{$("#favorites").hidden=!$("#favorites").hidden;if(!$("#favorites").hidden){$("#favorites").scrollIntoView({behavior:"smooth"});notify("Daftar favorit dibuka")}else notify("Daftar favorit ditutup")};
+$("#closeFav").onclick=()=>{$("#favorites").hidden=true};
+window.addEventListener("scroll",()=>$("#nav").classList.toggle("scrolled",scrollY>25),{passive:true});
+$("#heroFav").onclick=()=>{toggleFav("s1");$("#heroFav").innerHTML=store.favorites.includes("s1")?"♥ &nbsp; Tersimpan":"♡ &nbsp; Simpan"};
+$("#savePersonal").onclick=()=>{let poi=$("#namePoi").value.trim()||"Hercule Poirot",azu=$("#nameAzu").value.trim()||"Azura Bell";$$(".person-copy h3")[0].textContent=poi;$$(".person-copy h3")[1].textContent=azu;$(".hero-content p").textContent=$("#introEdit").value;store.letter=$("#letterEdit").value;localStorage.setItem("pa_letter",store.letter);localStorage.setItem("pa_name_poi",poi);localStorage.setItem("pa_name_azu",azu);notify("Perubahan tersimpan di browser ini.")};
+function applyPhotos(){$("#heroBg").style.backgroundImage=`url("${PHOTOS.hero}")`;$("#featureImg").style.backgroundImage=`url("${PHOTOS.feature}")`;$("#poiImg").src=PHOTOS.poi;$("#azuImg").src=PHOTOS.azu;["g0","g1","g2","g3","g4"].forEach((k,i)=>$("#gal"+i).src=PHOTOS[k])}
+const audio=$("#audio"),disc=$("#disc");if(MUSIC_FILE){audio.src=MUSIC_FILE;$("#musicStatus").textContent="Soundtrack"}
+$("#musicPlay").onclick=async()=>{if(!audio.src){notify("Untuk musik: tambahkan music.mp3 di folder yang sama dan isi MUSIC_FILE di kode.");return}try{if(audio.paused){await audio.play();$("#musicPlay").textContent="Ⅱ";$("#musicStatus").textContent="Musik diputar";disc.classList.add("playing")}else{audio.pause();$("#musicPlay").textContent="▶";$("#musicStatus").textContent="Musik dijeda";disc.classList.remove("playing")}}catch(e){notify("Tekan tombol musik sekali lagi untuk memulai.")}};
+$("#musicMute").onclick=()=>{if(!audio.src){notify("Tambahkan file musik terlebih dahulu.");return}audio.muted=!audio.muted;$("#musicMute").textContent=audio.muted?"×":"♪";notify(audio.muted?"Musik dimatikan":"Musik dinyalakan")};
+if(localStorage.getItem("pa_name_poi"))$("#namePoi").value=localStorage.getItem("pa_name_poi");if(localStorage.getItem("pa_name_azu"))$("#nameAzu").value=localStorage.getItem("pa_name_azu");if(store.letter)$("#letterEdit").value=store.letter;
+
+const firstChatUpload=$("#firstChatUpload"),firstChatImg=$("#firstChatImg"),chatPlaceholder=$("#chatPlaceholder");
+function showFirstChatImage(src){firstChatImg.src=src;firstChatImg.hidden=false;chatPlaceholder.hidden=true}
+try{const savedFirstChat=localStorage.getItem("pa_first_chat_image");if(savedFirstChat)showFirstChatImage(savedFirstChat)}catch(e){}
+firstChatUpload.addEventListener("change",e=>{
+ const file=e.target.files&&e.target.files[0];if(!file)return;
+ if(!file.type.startsWith("image/")){notify("Pilih file gambar, ya.");return}
+ const reader=new FileReader();
+ reader.onload=()=>{
+  const src=reader.result;showFirstChatImage(src);
+  try{localStorage.setItem("pa_first_chat_image",src);notify("Screenshot chat pertama ditampilkan dan tersimpan di browser.")}
+  catch(err){notify("Screenshot tampil, tetapi terlalu besar untuk disimpan. Coba gambar yang lebih kecil.");}
+ };
+ reader.onerror=()=>notify("Gambar belum bisa dibaca. Coba pilih file lain.");
+ reader.readAsDataURL(file);
+});
+
+applyPhotos();render();
+</script>
+</body>
+</html>
