@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#141414">
+<meta name="description" content="A Little Place Called Us — a little collection of memories for Azura Bell.">
+<title>A Little Place Called Us — Belloir</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/Cover.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/HerculePoirot2.jpg">
+<link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/AzuraBell2.jpg">
+<style>
+:root{--bg:#141414;--panel:#181818;--text:#fff;--muted:#b3b3b3;--accent:#e50914;--red:#e50914;--nav:rgba(20,20,20,.96);--ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Netflix Sans",Helvetica,Arial,sans-serif;overflow-x:hidden}
+body.locked{overflow:hidden}
+button,a{font:inherit}
+button{color:inherit}
+a{color:inherit;text-decoration:none}
+button:focus-visible,a:focus-visible{outline:2px solid #fff;outline-offset:4px}
+button,a,.photo-card{ -webkit-tap-highlight-color:transparent }
+button:active,a:active,.photo-card:active{transform:scale(.975)}
+main{transition:opacity .18s ease,transform .18s ease}
+main.route-enter{animation:routeEnter .28s var(--ease) both}
+.page-heading.route-enter{animation:routeEnter .28s var(--ease) both}
+@keyframes routeEnter{from{opacity:.55;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+.track-row.is-buffering .track-time{color:#e0b66a}
+::selection{background:#e50914;color:#fff}
+.nav{position:fixed;z-index:20;top:0;left:0;right:0;display:flex;align-items:center;gap:28px;padding:22px clamp(18px,5vw,76px);transition:background .35s,padding .35s;background:linear-gradient(180deg,rgba(0,0,0,.72),transparent)}
+.nav.scrolled{background:var(--nav);backdrop-filter:blur(14px);padding-top:14px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.06)}
+.brand{font-size:1.55rem;font-weight:850;letter-spacing:-.07em;color:#e50914}
+.navlinks{display:flex;align-items:center;gap:23px;font-size:.87rem;color:#e5e5e5}
+.navlinks a{opacity:.78;transition:opacity .2s}.navlinks a:hover{opacity:1}
+.navright{margin-left:auto;display:flex;align-items:center;gap:10px}
+.iconbtn,.menu-btn{border:1px solid rgba(255,255,255,.2);background:rgba(20,20,20,.55);border-radius:999px;width:42px;height:42px;display:grid;place-items:center;cursor:pointer;transition:background .2s,border-color .2s}
+.iconbtn:hover,.menu-btn:hover{background:#333;border-color:rgba(255,255,255,.45)}
+.menu-btn{display:none}
+.hero{min-height:0;height:auto;max-height:none;position:relative;display:grid;grid-template-areas:"hero";align-items:stretch;padding:0;isolation:isolate;overflow:hidden;background:#141414}
+.hero-photo{grid-area:hero;align-self:start;position:relative;inset:auto;z-index:-3;display:block;width:100%;height:auto;max-height:none;object-fit:contain;object-position:center top;background:#181818;transform:none;transition:opacity .5s}
+.hero.loaded .hero-photo{opacity:1}
+.hero-content{grid-area:hero;align-self:end;position:relative;z-index:2;padding:150px clamp(22px,6vw,92px) 105px}
+.hero:before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(5,5,5,.91) 0%,rgba(5,5,5,.68) 37%,rgba(5,5,5,.12) 76%),linear-gradient(0deg,#090909 0%,rgba(9,9,9,.65) 15%,transparent 52%),linear-gradient(180deg,rgba(0,0,0,.3),transparent 28%)}
+.hero:after{content:"";position:absolute;inset:auto 0 0;height:160px;background:linear-gradient(0deg,var(--bg),transparent);z-index:-1}
+.hero-content{max-width:720px;animation:rise .9s var(--ease) both}
+.eyebrow{text-transform:uppercase;letter-spacing:.23em;font-size:.7rem;color:#fff;font-weight:750;margin:0 0 20px}
+h1{font-size:clamp(2.8rem,6.2vw,5.4rem);line-height:.94;letter-spacing:-.07em;margin:0 0 22px;font-weight:850;max-width:700px}
+.hero-copy{font-size:clamp(1rem,1.35vw,1.13rem);line-height:1.65;color:#f2f2f2;max-width:650px;margin:0 0 28px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:5px;padding:13px 20px;min-height:48px;font-weight:750;cursor:pointer;transition:transform .22s var(--ease),background .22s,opacity .22s}
+.btn:hover{transform:translateY(-2px)}.btn:active{transform:scale(.98)}
+.btn-primary{background:#fff;color:#141414}.btn-primary:hover{background:#e6e6e6}
+.play-triangle{display:inline-block;width:0;height:0;flex:0 0 auto;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:11px solid currentColor;line-height:0;font-size:0;-webkit-appearance:none;appearance:none}
+.btn-secondary{background:rgba(109,109,110,.72);color:white;backdrop-filter:blur(10px)}.btn-secondary:hover{background:rgba(109,109,110,.48)}
+.hero-note{margin-top:28px;color:#b3b3b3;font-size:.79rem;letter-spacing:.04em}
+main{position:relative;margin-top:-20px;z-index:2}
+.section{padding:22px 0 28px}
+.section-head{display:flex;align-items:baseline;gap:14px;padding:0 clamp(20px,5vw,76px);margin-bottom:15px}
+.section-head h2{font-size:clamp(1.2rem,2.3vw,1.75rem);letter-spacing:-.045em;margin:0;font-weight:780}.section-head h2:after{content:"  ›";color:#e50914;font-weight:700;opacity:1}
+.section-head p{margin:0;color:#a9a19a;font-size:.84rem}
+.row-shell{position:relative}
+.rail{display:flex;gap:12px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;padding:8px clamp(20px,5vw,76px) 24px;scroll-snap-type:x proximity}
+.rail::-webkit-scrollbar{display:none}
+.photo-card{flex:0 0 clamp(220px,25vw,350px);position:relative;border:0;padding:0;background:#181818;border-radius:4px;overflow:hidden;aspect-ratio:4/5;cursor:pointer;scroll-snap-align:start;isolation:isolate;transition:transform .28s var(--ease),box-shadow .28s}
+.photo-card img{width:100%;height:100%;object-fit:contain;background:#101010;display:block;transition:transform .5s var(--ease),opacity .3s}
+.photo-card:hover{z-index:3;transform:scale(1.055);box-shadow:0 18px 42px #000b}
+.photo-card:hover img{transform:scale(1.04)}
+.photo-card:after{content:"";position:absolute;inset:40% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.65));pointer-events:none}
+.photo-card .card-label{position:absolute;z-index:1;left:14px;right:12px;bottom:12px;text-align:left;font-size:.88rem;font-weight:750;text-shadow:0 1px 10px #000}.photo-card .card-sub{position:absolute;z-index:1;left:14px;right:12px;bottom:34px;text-align:left;font-size:.7rem;color:#e1d8d0;line-height:1.35;text-shadow:0 1px 10px #000;opacity:0;transform:translateY(5px);transition:opacity .2s,transform .2s}.photo-card:hover .card-sub,.photo-card:focus-visible .card-sub{opacity:1;transform:none}@media(max-width:760px){.viewer-description{font-size:1rem;line-height:1.55}.photo-card .card-sub{opacity:1;transform:none;bottom:36px;max-height:2.7em;overflow:hidden}.viewer-caption{flex-wrap:wrap}.viewer-description{order:3;flex-basis:100%;max-width:100%}}
+.photo-card.portrait,.photo-card.wide{aspect-ratio:4/5;flex-basis:clamp(220px,25vw,350px)}
+.photo-card img{object-fit:contain}
+.card-placeholder{display:grid;place-items:center;background:linear-gradient(135deg,#262626,#111);color:#b3b3b3;letter-spacing:.1em;text-transform:uppercase;font-size:.68rem}
+.row-arrow{position:absolute;top:0;bottom:20px;width:clamp(35px,4vw,65px);z-index:4;border:0;color:white;background:#080808a8;cursor:pointer;opacity:0;transition:opacity .2s;font-size:1.8rem}
+.row-shell:hover .row-arrow,.row-arrow:focus-visible{opacity:1}.row-arrow.left{left:0}.row-arrow.right{right:0}
+.intro-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(25px,6vw,90px);padding:80px clamp(22px,8vw,120px);align-items:center}
+.intro-kicker{color:#e50914;text-transform:uppercase;font-size:.7rem;letter-spacing:.22em;font-weight:700}
+.intro-grid h2{font-size:clamp(2rem,4vw,4.2rem);letter-spacing:-.07em;line-height:1.02;margin:15px 0 20px}
+.intro-grid p{color:#b3b3b3;line-height:1.9;max-width:540px}
+.note-card{border-top:1px solid #333;border-bottom:1px solid #333;padding:28px 0 28px 25px;position:relative}
+.note-card:before{content:"“";position:absolute;top:5px;left:0;color:#e50914;font-family:Georgia,serif;font-size:2.2rem}
+.note-card p{font-family:Georgia,serif;font-size:clamp(1.25rem,2.4vw,2rem);line-height:1.5;color:#fff;margin:0}
+.note-card small{display:block;margin-top:18px;color:#9e9186;letter-spacing:.08em}
+.continue{margin:55px clamp(22px,6vw,90px) 80px;min-height:300px;padding:clamp(28px,6vw,75px);display:flex;align-items:flex-end;position:relative;overflow:hidden;background:linear-gradient(90deg,#202020,#141414 70%);border-top:1px solid #333}
+.continue:before{content:"";position:absolute;right:-8%;top:-45%;width:60%;height:180%;border-radius:50%;background:radial-gradient(ellipse,rgba(229,9,20,.12),transparent 65%);pointer-events:none}
+.continue h2{font-size:clamp(2rem,5vw,4.5rem);letter-spacing:-.07em;margin:10px 0 16px;line-height:1}
+.continue p{color:#b3b3b3;max-width:560px;line-height:1.8}
+.footer{border-top:1px solid #333;padding:28px clamp(22px,6vw,90px) 42px;color:#808080;font-size:.8rem;display:flex;gap:15px;justify-content:space-between;flex-wrap:wrap}
+.footer strong{color:#e50914}
+.empty-state{margin:0 clamp(20px,5vw,76px) 30px;padding:20px;border:1px dashed #444;color:#b3b3b3;font-size:.88rem;line-height:1.7;display:none}
+.empty-state.visible{display:block}
+#assetStatus{font-size:.75rem;color:#8f877f}
+.audio-pill{display:flex;align-items:center;gap:8px;border:1px solid #ffffff25;background:#0c0c0c9c;border-radius:999px;padding:7px 12px;font-size:.75rem;color:#e5e5e5;max-width:190px}
+.audio-dot{width:7px;height:7px;background:#8cbd91;border-radius:50%;box-shadow:0 0 0 3px #8cbd9122}
+.audio-pill.blocked .audio-dot{background:#e50914;box-shadow:0 0 0 3px #e5091422}
+.overlay{position:fixed;inset:0;z-index:100;background:#030303;display:none;align-items:center;justify-content:center;opacity:0;transition:opacity .28s var(--ease);padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
+.overlay.open{display:flex}.overlay.shown{opacity:1}
+.overlay-top{position:absolute;top:max(15px,env(safe-area-inset-top));left:20px;right:20px;display:flex;align-items:center;justify-content:space-between;z-index:3}
+.overlay-title{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:#b3b3b3}
+.close{width:45px;height:45px;border-radius:50%;border:1px solid #ffffff35;background:#181818b8;font-size:1.8rem;line-height:1;cursor:pointer;display:grid;place-items:center}
+.viewer-stage{position:absolute;inset:55px 0 60px;display:grid;place-items:center;overflow:hidden;pointer-events:none}
+.viewer-stage img{position:absolute;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;pointer-events:none;opacity:0;transform:scale(1.012);transition:opacity .32s ease,transform .7s ease;user-select:none;-webkit-user-drag:none}
+.viewer-stage img.active{opacity:1;transform:scale(1)}
+.viewer-caption{position:absolute;bottom:max(20px,env(safe-area-inset-bottom));left:20px;right:20px;display:flex;align-items:center;justify-content:space-between;color:#b3b3b3;font-size:.8rem;z-index:3;gap:15px}.viewer-description{margin-right:auto;max-width:min(62vw,760px);color:#f0f0f0;line-height:1.55;font-size:clamp(.95rem,1.5vw,1.12rem)}
+.viewer-actions{display:flex;gap:8px;align-items:center}
+.mini-btn{border:1px solid #ffffff25;background:#232323;border-radius:999px;padding:9px 13px;cursor:pointer;font-size:.8rem}
+.progress{height:2px;background:#ffffff22;position:absolute;bottom:0;left:0;right:0;z-index:4}
+.progress span{display:block;height:100%;width:0;background:#e50914;transition:width .35s linear}
+.end-card{position:absolute;z-index:5;inset:0;display:none;place-content:center;text-align:center;padding:25px;background:linear-gradient(#0002,#000b);backdrop-filter:blur(4px)}
+.end-card.show{display:grid}
+.end-card h2{font-size:clamp(2rem,6vw,4.4rem);letter-spacing:-.06em;margin:0 auto 14px;max-width:750px}
+.end-card p{color:#b3b3b3;margin:0 auto 24px;line-height:1.7}
+.end-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.viewer-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:20;display:grid;place-items:center;background:rgba(24,24,24,.88);border:1px solid #ffffff45;border-radius:50%;width:48px;height:48px;min-width:48px;min-height:48px;padding:0;cursor:pointer;font-size:1.5rem;color:#fff;pointer-events:auto;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.viewer-nav.prev{left:max(12px,env(safe-area-inset-left))}.viewer-nav.next{right:max(12px,env(safe-area-inset-right))}
+.viewer-nav:disabled{opacity:.28;cursor:default}
+@media(max-width:760px){.photo-card,.photo-card.portrait,.photo-card.wide{aspect-ratio:4/5;flex-basis:58vw}.viewer-nav{top:50%;width:46px;height:46px;min-width:46px;min-height:46px}.viewer-nav.prev{left:8px}.viewer-nav.next{right:8px}.viewer-stage{inset:62px 0 112px}.viewer-caption{bottom:max(28px,env(safe-area-inset-bottom));left:16px;right:16px;z-index:10}}
+.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,15px);z-index:150;background:#232323;color:#fff;border:1px solid #444;border-radius:999px;padding:11px 16px;font-size:.8rem;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;max-width:90vw;text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+.feature-section{padding:50px clamp(20px,5vw,76px)}
+.feature-heading{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:22px;flex-wrap:wrap}
+.feature-heading h2{font-size:clamp(1.5rem,3vw,2.4rem);letter-spacing:-.055em;margin:0 0 7px}
+.feature-heading p{margin:0;color:var(--muted);line-height:1.65;font-size:.9rem;max-width:680px}
+.kicker{font-size:.68rem;text-transform:uppercase;letter-spacing:.2em;color:var(--accent);font-weight:800;display:block;margin-bottom:10px}
+.counter-layout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:stretch}
+.counter-card,.feature-card{background:linear-gradient(145deg,#202020,#171717);border:1px solid #ffffff12;border-radius:8px;padding:clamp(20px,3vw,34px);min-width:0;position:relative;overflow:hidden}
+.counter-card{height:100%;min-height:150px;display:flex;flex-direction:column;justify-content:flex-start;box-sizing:border-box}
+.counter-card .digits{margin-top:auto}
+.counter-card .counter-label,.counter-card .countdown-date{min-height:1.35em}
+.counter-card .countdown-date{line-height:1.35}
+.counter-card .digit{min-height:64px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center}
+.counter-card .digit strong{line-height:1.1}
+.counter-card:after{content:"";position:absolute;width:230px;height:230px;right:-95px;top:-110px;background:radial-gradient(circle,#e5091428,transparent 68%);pointer-events:none}
+.counter-label{font-size:.82rem;color:#b3b3b3;margin:0 0 18px}
+.digits{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+.digit{background:#0d0d0d;border:1px solid #ffffff0e;border-radius:5px;padding:16px 8px;text-align:center;min-width:0}
+.digit strong{font-size:clamp(1.35rem,3.3vw,2.45rem);letter-spacing:-.05em;display:block;font-variant-numeric:tabular-nums}
+.digit span{display:block;color:#a6a6a6;text-transform:uppercase;letter-spacing:.1em;font-size:.62rem;margin-top:5px}
+.countdown-date{font-size:1.1rem;font-weight:750;margin:0 0 20px}
+.summary-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.summary-card{background:#1b1b1b;border:1px solid #ffffff12;border-radius:7px;padding:22px;min-height:135px}
+.summary-card .symbol{font-size:1.35rem;color:#e50914;margin-bottom:16px}
+.summary-card h3{font-size:1rem;margin:0 0 8px}.summary-card p{font-size:.82rem;line-height:1.6;color:#b3b3b3;margin:0}
+.bucket-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.wishlist-frame{width:100%;max-width:none;margin:0 auto;border-radius:8px;overflow:hidden;background:#111;border:1px solid #ffffff14;box-shadow:0 18px 55px #0005}
+.wishlist-image{display:block;width:100%;height:auto;max-height:none;object-fit:contain;object-position:center;margin:0 auto}
+.wishlist-caption{padding:10px 16px;color:#aaa;font-size:.75rem;text-align:center}
+#bucket-list .wishlist-frame{width:calc(100% + clamp(40px,10vw,152px));margin-left:clamp(-76px,-5vw,-20px);border-radius:0;border-left:0;border-right:0}
+.track-controls{display:grid;grid-template-columns:42px minmax(80px,220px) auto;align-items:center;gap:10px;min-width:0}
+.track-toggle{width:38px;height:38px;border:0;border-radius:50%;background:#f2f2f2;color:#111;font-weight:900;cursor:pointer;display:grid;place-items:center}
+.track-toggle:hover{background:#d9d9d9}
+.track-seek{width:100%;min-width:0;accent-color:#e50914;cursor:pointer}
+.track-time{font-size:.72rem;color:#aaa;font-variant-numeric:tabular-nums;white-space:nowrap}
+.track-row.is-playing{border-color:#e509145c;background:#222}
+@media(max-width:700px){.track-controls{grid-column:2;grid-template-columns:38px minmax(45px,1fr) auto;width:100%}.wishlist-image{max-height:none}}
+.bucket-item{display:flex;align-items:flex-start;gap:12px;background:#1b1b1b;border:1px solid #ffffff12;border-radius:6px;padding:16px;cursor:pointer;line-height:1.45;color:#e8e8e8}
+.bucket-item input{accent-color:#e50914;margin-top:4px;width:17px;height:17px;flex:none}
+.bucket-item:has(input:checked){color:#929292;text-decoration:line-through;border-color:#e509144d}
+.feature-empty{border:1px dashed #454545;border-radius:7px;padding:28px;text-align:center;color:#a8a8a8;line-height:1.7;background:#181818}
+.feature-empty strong{display:block;color:#fff;font-size:1rem;margin-bottom:6px}
+.playlist-player{display:flex;align-items:center;gap:16px;background:#1b1b1b;border:1px solid #ffffff12;padding:18px;border-radius:7px;margin-bottom:12px}
+.playlist-disc{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,#444 0 12%,#171717 13% 30%,#333 31% 34%,#161616 35%);border:2px solid #444;color:#e50914;font-size:1.3rem;flex:none}
+.playlist-meta{flex:1;min-width:0}.playlist-meta strong{display:block;margin-bottom:5px}.playlist-meta span{font-size:.8rem;color:#aaa}
+@media(max-width:760px){.navlinks{max-height:75svh;overflow:auto}.counter-layout{grid-template-columns:1fr;gap:14px}.counter-card{min-height:148px}.feature-section{padding:35px 20px}.summary-grid{grid-template-columns:1fr}.summary-card{min-height:0}.bucket-grid{grid-template-columns:1fr}.digits{gap:5px}.digit{padding:13px 3px}.counter-card .digit{min-height:58px}.digit span{font-size:.55rem;letter-spacing:.04em}}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}.reveal.in{opacity:1;transform:none}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:760px){
+ .nav{padding:15px 18px;gap:14px}.brand{font-size:1.4rem}.navlinks{display:none;position:absolute;top:62px;left:12px;right:12px;padding:17px;background:#111f;border:1px solid #ffffff1b;border-radius:8px;flex-direction:column;align-items:flex-start;gap:18px;backdrop-filter:blur(16px)}.navlinks.open{display:flex}.menu-btn{display:grid}.audio-pill{max-width:none;padding:7px 9px}.audio-pill .audio-text{display:none}
+ .hero{height:auto;min-height:0;max-height:none;padding:0;display:grid;grid-template-areas:"hero";align-items:stretch;position:relative}.hero-photo{grid-area:hero;position:relative;inset:auto;width:100%;height:auto;max-height:none;object-fit:contain;object-position:center top;z-index:-3;align-self:start}.hero:before{display:block;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.38),rgba(0,0,0,.02) 90%),linear-gradient(0deg,#090909 0%,rgba(9,9,9,.88) 12%,rgba(9,9,9,.22) 48%,rgba(0,0,0,.22) 100%)}.hero:after{display:block;height:100px}.hero-content{grid-area:hero;align-self:end;position:relative;padding:30px 22px 46px;max-width:none;background:transparent;z-index:2}h1{font-size:clamp(2.35rem,9.5vw,3.35rem);line-height:.98;letter-spacing:-.065em;margin-bottom:18px;max-width:100%}.eyebrow{font-size:.62rem;letter-spacing:.19em;margin-bottom:15px}.hero-copy{font-size:.94rem;line-height:1.6;max-width:430px;margin-bottom:22px}.hero-content{padding:30px 22px 42px}.hero-note{font-size:.74rem;margin-top:22px}.hero-actions .btn{flex:0 1 auto}
+ .section{padding-top:16px}.section-head{display:block}.section-head p{margin-top:5px}.rail{gap:10px;padding-bottom:20px}.photo-card{flex-basis:68vw}.photo-card.portrait{flex-basis:43vw}.row-arrow{display:none}
+ .intro-grid{grid-template-columns:1fr;padding-top:55px;padding-bottom:45px;gap:25px}.note-card{margin-top:0}.continue{margin:35px 18px 55px;min-height:300px}.footer{padding-bottom:calc(28px + env(safe-area-inset-bottom))}
+ .viewer-stage{inset:60px 0 68px}.viewer-nav{width:38px;height:38px}.viewer-nav.prev{left:7px}.viewer-nav.next{right:7px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* Separate feature pages */
+.page-hidden{display:none!important}
+body.page-counter #counter>.feature-heading:first-child,
+body.page-wrapped #wrapped>.feature-heading:first-child,
+body.page-bucket-list #bucket-list>.feature-heading:first-child,
+body.page-shared-playlist #shared-playlist>.feature-heading:first-child,
+body.page-azura-picks #azura-picks>.feature-heading:first-child,
+body.page-supporting-cast #supporting-cast>.feature-heading:first-child,
+body.page-somewhere-in-a-song #somewhere-in-a-song>.feature-heading:first-child{display:none}
+body.picker-open{overflow:hidden}
+.profile-picker{position:fixed;inset:0;z-index:500;background:#050505;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:28px;opacity:1;transition:opacity 1.15s ease,visibility 1.15s ease}
+ .profile-picker.leaving{opacity:0;visibility:hidden;pointer-events:none}
+#brandSplash{position:fixed;inset:0;z-index:700;background:#050505;display:none;align-items:center;justify-content:center;pointer-events:none}
+#brandSplash.active{display:flex;animation:brandSplashFade 2.65s ease-in-out both}
+#brandSplash span{color:#e50914;font-size:clamp(3.2rem,12vw,7rem);font-weight:900;letter-spacing:-.085em;animation:brandWordZoom 2.65s cubic-bezier(.2,.7,.2,1) both}
+@keyframes brandSplashFade{0%{opacity:1}72%{opacity:1}100%{opacity:0}}
+@keyframes brandWordZoom{0%{opacity:0;transform:scale(.72)}18%{opacity:1;transform:scale(1)}72%{opacity:1;transform:scale(1.32)}100%{opacity:0;transform:scale(1.48)}}
+body.picker-open main,body.picker-open .nav{opacity:0;visibility:hidden}
+body.home-revealing main,body.home-revealing .nav{animation:homeFadeIn .8s ease 0s both;visibility:visible}
+@keyframes homeFadeIn{from{opacity:0}to{opacity:1}}
+.profile-picker h2{font-size:clamp(2rem,5vw,3.5rem);font-weight:500;letter-spacing:-.04em;text-align:center;margin:0 0 42px}
+.profile-options{display:flex;justify-content:center;gap:clamp(24px,5vw,55px);flex-wrap:wrap}
+.profile-choice{background:none;border:0;color:#aaa;cursor:pointer;text-align:center;font-size:1.15rem;letter-spacing:.01em}
+.profile-choice img{display:block;width:clamp(110px,17vw,170px);aspect-ratio:1;object-fit:cover;border:3px solid transparent;margin:0 auto 15px;transition:border-color .2s,transform .2s}
+.profile-choice:hover img,.profile-choice:focus-visible img{border-color:#fff;transform:scale(1.04)}
+.profile-choice:hover{color:#fff}
+.picker-note{color:#777;font-size:.8rem;margin-top:38px}
+.page-heading{padding:125px clamp(22px,6vw,90px) 28px;background:linear-gradient(180deg,#252525,#141414)}
+.page-heading .kicker{margin-bottom:12px}.page-heading h1{font-size:clamp(2.7rem,7vw,5.5rem);margin:0 0 12px}.page-heading p{color:#bbb;max-width:700px;line-height:1.7}
+body:not(.home-page) .hero,body:not(.home-page) #collection,body:not(.home-page) #assetHelp{display:none!important}
+body:not(.home-page) main{margin-top:0}
+body:not(.home-page) main>.feature-section,body:not(.home-page) main>.intro-grid,body:not(.home-page) main>.continue{display:none}
+body.page-counter #counter,body.page-wrapped #wrapped,body.page-bucket-list #bucket-list,body.page-shared-playlist #shared-playlist,body.page-azura-picks #azura-picks,body.page-supporting-cast #supporting-cast,body.page-somewhere-in-a-song #somewhere-in-a-song,body.page-about #about{display:block!important}
+body.page-counter .page-heading,body.page-wrapped .page-heading,body.page-bucket-list .page-heading,body.page-shared-playlist .page-heading,body.page-azura-picks .page-heading,body.page-supporting-cast .page-heading,body.page-somewhere-in-a-song .page-heading,body.page-about .page-heading{display:block}
+body.home-page main>.feature-section,body.home-page main>.intro-grid,body.home-page main>.continue{display:none!important}
+body.home-page #collection{display:block!important}
+body.home-page .hero{display:grid!important;grid-template-areas:"hero";align-items:stretch}
+.wrapped-page{position:relative;overflow:hidden;background:radial-gradient(ellipse at 15% 15%,#ff6b3d 0,transparent 32%),radial-gradient(ellipse at 85% 25%,#a855f7 0,transparent 33%),radial-gradient(ellipse at 65% 90%,#eab308 0,transparent 34%),#171717;border-radius:14px;padding:clamp(24px,5vw,64px);min-height:500px}
+.wrapped-page:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0 34px,#ffffff09 35px 37px);pointer-events:none}
+.wrapped-topline{position:relative;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;text-transform:uppercase;font-size:.72rem;font-weight:800;letter-spacing:.16em}
+.wrapped-title{position:relative;font-size:clamp(3.4rem,12vw,9rem);line-height:.82;letter-spacing:-.09em;margin:55px 0 28px;text-transform:uppercase;font-weight:950}
+.wrapped-title span{display:block;color:#fef08a}
+.wrapped-cards{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.wrapped-card{background:#111d;border:1px solid #ffffff30;border-radius:10px;padding:22px;min-height:155px;backdrop-filter:blur(8px)}
+.wrapped-card b{font-size:clamp(1.2rem,2.7vw,2rem);display:block;line-height:1.1;margin:8px 0}.wrapped-card small{letter-spacing:.13em;text-transform:uppercase;color:#ddd;font-size:.65rem}
+.wrapped-footer{position:relative;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:25px;font-size:.78rem;color:#eee}
+.playlist-list{display:grid;gap:10px}
+.playlist-second{margin-top:42px}
+.playlist-owner-title{font-size:1.35rem;margin:0 0 14px}
+.track-row{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:14px;align-items:center;background:#1d1d1d;border:1px solid #ffffff12;padding:12px 15px;border-radius:7px}
+.track-index{color:#888;font-variant-numeric:tabular-nums}
+.track-title{font-weight:750;overflow-wrap:anywhere}.track-file{font-size:.75rem;color:#999;margin-top:4px;overflow-wrap:anywhere}
+.track-controls{display:grid;grid-template-columns:32px minmax(65px,170px) auto;align-items:center;gap:8px;min-width:0}
+.track-controls .track-toggle{width:30px;height:30px;min-width:30px;padding:0;border:1px solid #ffffff24;border-radius:50%;background:#292929;color:#fff;font-size:.72rem;cursor:pointer;display:grid;place-items:center;transition:background .18s,border-color .18s}
+.track-controls .track-toggle:hover{background:#444;border-color:#ffffff55}
+.track-controls .track-seek{width:100%;min-width:0;height:3px;accent-color:#e50914;cursor:pointer}
+.track-controls .track-time{font-size:.68rem;color:#999;font-variant-numeric:tabular-nums;white-space:nowrap}
+.track-controls audio{display:none}
+.track-row.is-playing{border-color:#e509145c;background:#222}
+@media(max-width:700px){.track-row{grid-template-columns:25px minmax(0,1fr);gap:10px}.track-controls{grid-column:2;grid-template-columns:30px minmax(45px,1fr) auto;width:100%}.wishlist-image{max-height:none}}
+.movie-owner{margin-top:35px}.movie-owner h3{font-size:1.7rem;margin:0 0 20px;letter-spacing:-.04em}
+.movie-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.movie-card{background:#1b1b1b;border:1px solid #ffffff12;border-radius:9px;overflow:hidden}
+.movie-poster{width:100%;height:auto;max-height:560px;object-fit:contain;background:#111;display:block;margin:0 auto}
+.movie-copy{padding:20px}.movie-copy h4{font-size:1.25rem;margin:0 0 9px}.movie-rating{color:#f5cf65;font-weight:800;margin:0 0 13px}.movie-review{white-space:pre-wrap;color:#ddd;line-height:1.8;font-size:.9rem;margin:0}
+@media(max-width:700px){.wrapped-cards,.movie-grid{grid-template-columns:1fr}.wrapped-page{min-height:0}.wrapped-title{margin:45px 0 25px}.track-row{grid-template-columns:25px minmax(0,1fr);gap:10px}.track-controls{grid-column:2}.profile-picker h2{margin-bottom:32px}}
+
+
+/* Final responsive hero sizing: keep the cover copy compact on phones */
+@media (max-width: 760px) {
+  .hero { overflow:hidden; }
+  .hero-content {
+    width:100%; max-width:620px; padding: clamp(112px, 24vh, 190px) 22px 34px !important;
+    align-self:end; justify-self:start;
+  }
+  .hero-content h1, h1#heroTitle {
+    font-size: clamp(2rem, 7.4vw, 2.75rem) !important;
+    line-height: .99 !important; letter-spacing: -.06em !important;
+    margin: 0 0 14px !important; max-width: 100%;
+  }
+  .hero-content .eyebrow { font-size: .58rem !important; letter-spacing: .15em !important; margin-bottom: 11px !important; }
+  .hero-content .hero-copy { font-size: .86rem !important; line-height: 1.48 !important; margin: 0 0 16px !important; max-width: 100%; }
+  .hero-content .hero-actions { gap: 9px; }
+  .hero-content .hero-actions .btn { min-height: 42px; padding: 10px 14px; font-size: .88rem; }
+  .hero-content .hero-note { font-size: .7rem !important; line-height: 1.45; margin-top: 15px !important; }
+}
+@media (max-width: 390px) {
+  .hero-content { padding-left: 19px !important; padding-right: 19px !important; padding-bottom: 28px !important; }
+  .hero-content h1, h1#heroTitle { font-size: clamp(1.85rem, 7.1vw, 2.25rem) !important; }
+  .hero-content .hero-copy { font-size: .82rem !important; }
+  .hero-content .hero-actions .btn { width:100%; }
+}
+@media (min-width: 761px) {
+  .hero-content h1, h1#heroTitle { font-size: clamp(2.6rem, 5vw, 4.35rem); }
+}
+
+/* The Supporting Cast — square-cropped portraits, anchored high to preserve heads. */
+.supporting-cast-section{padding-top:28px}
+.cast-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2.2vw,28px);padding:0 clamp(18px,5vw,70px) 64px}
+.cast-card{min-width:0;background:linear-gradient(145deg,#202020,#121212);border:1px solid #ffffff12;border-radius:10px;overflow:hidden;transition:transform .25s ease,border-color .25s ease}
+.cast-card:hover{transform:translateY(-4px);border-color:#ffffff35}
+.cast-photo{aspect-ratio:1/1;width:100%;display:flex;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(ellipse at 50% 20%,#383838,#111 72%)}
+.cast-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center top;content-visibility:visible}
+.cast-info{padding:17px 18px 20px}.cast-index{display:block;color:#999;font-size:.62rem;font-weight:800;letter-spacing:.14em;margin-bottom:9px}.cast-info h3{font-size:clamp(1.1rem,2vw,1.45rem);font-weight:600;margin:0;letter-spacing:-.025em}
+@media(max-width:760px){.cast-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:0 16px 42px}.cast-info{padding:13px 12px 16px}.cast-index{font-size:.52rem;letter-spacing:.09em}}
+@media(max-width:360px){.cast-grid{gap:9px;padding-left:12px;padding-right:12px}.cast-info{padding:11px 9px 13px}}
+
+/* Somewhere In A Song: one full-width artwork per row, preserving each image's original proportions. */
+.song-page{padding:24px 0 36px;min-height:calc(100svh - 100px)}
+.song-page>.feature-heading{padding:0 clamp(20px,5vw,76px);margin-bottom:24px}
+.song-gallery{display:flex;flex-direction:column;gap:clamp(18px,3vw,36px);width:100%;}
+.song-art{margin:0;width:100%;min-width:0;display:block;overflow:visible;background:transparent;border:0;border-radius:0;}
+.song-art img{display:block;width:100%;height:auto;max-width:100%;object-fit:unset;object-position:center;background:transparent;content-visibility:visible;}
+body.page-somewhere-in-a-song .page-heading{padding-top:100px;padding-bottom:16px}
+body.page-somewhere-in-a-song .page-heading h1{font-size:clamp(2rem,4vw,3.7rem);margin-bottom:5px}
+body.page-somewhere-in-a-song .page-heading p{margin:0}
+body.page-somewhere-in-a-song main{min-height:calc(100svh - 90px)}
+@media(max-width:760px){.song-page{padding:18px 0 26px}.song-page>.feature-heading{padding:0 18px;margin-bottom:20px}.song-gallery{gap:16px}.song-art{border-radius:0}body.page-somewhere-in-a-song .page-heading{padding:88px 18px 12px}body.page-somewhere-in-a-song .page-heading h1{font-size:clamp(1.9rem,7vw,2.6rem)}}
+
+
+/* Our Playlist — richer listening-room styling */
+#shared-playlist{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 8% 0%,rgba(229,9,20,.13),transparent 36%),radial-gradient(ellipse at 95% 42%,rgba(94,73,123,.15),transparent 34%),linear-gradient(180deg,#151515 0%,#101010 100%);}
+#shared-playlist:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:repeating-linear-gradient(135deg,transparent 0 46px,rgba(255,255,255,.012) 47px 48px);}
+#shared-playlist .feature-heading{position:relative;margin-bottom:30px;}
+#shared-playlist .feature-heading:after{content:"SIDE A  ·  SIDE B";display:inline-flex;margin-top:18px;padding:8px 12px;border:1px solid #ffffff20;border-radius:999px;color:#c9bfc0;font-size:.64rem;font-weight:800;letter-spacing:.18em;background:#ffffff06;}
+#shared-playlist .playlist-list{position:relative;padding:20px;border:1px solid #ffffff18;border-radius:18px;background:linear-gradient(145deg,#ffffff0b,#ffffff03);box-shadow:0 22px 65px #0005;backdrop-filter:blur(8px);}
+#shared-playlist .playlist-second{margin-top:24px;}
+#shared-playlist .playlist-owner-title{display:flex;align-items:center;gap:12px;font-size:clamp(1.35rem,2.6vw,1.8rem);letter-spacing:-.04em;margin:0 0 18px;padding:0 0 14px;border-bottom:1px solid #ffffff18;}
+#shared-playlist #azuraPlaylist .playlist-owner-title:before,#shared-playlist #poirotPlaylist .playlist-owner-title:before{content:"";display:block;flex:0 0 42px;width:42px;height:42px;border-radius:50%;background-size:cover;background-position:center 35%;border:1px solid #ffffff35;box-shadow:0 4px 18px #0005;}
+#shared-playlist #azuraPlaylist .playlist-owner-title:before{background-image:url("https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/AzuraBell1.jpg");}
+#shared-playlist #poirotPlaylist .playlist-owner-title:before{background-image:url("https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/HerculePoirot1.jpg");}
+#shared-playlist .track-row{position:relative;overflow:hidden;grid-template-columns:38px minmax(0,1fr) 44px;gap:14px;padding:15px 14px;border:1px solid #ffffff0d;border-radius:12px;background:linear-gradient(110deg,#ffffff08,#ffffff02);transition:transform .2s ease,border-color .2s ease,background .2s ease;}
+#shared-playlist .track-row:before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:linear-gradient(180deg,#eab4c6,#e50914);opacity:0;transition:opacity .2s;}
+#shared-playlist #poirotPlaylist .track-row:before{background:linear-gradient(180deg,#a8c8e8,#637ba5);}
+#shared-playlist .track-row:hover{transform:translateY(-1px);border-color:#ffffff2a;background:#ffffff0a;}
+#shared-playlist .track-row.is-playing{border-color:#e509146e;background:linear-gradient(100deg,#e509141b,#ffffff04);box-shadow:0 8px 25px #0003;}
+#shared-playlist .track-row.is-playing:before{opacity:1;}
+#shared-playlist #poirotPlaylist .track-row.is-playing{border-color:#8eacd66e;background:linear-gradient(100deg,#7798c51b,#ffffff04);}
+#shared-playlist .track-index{font-size:.78rem;letter-spacing:.08em;color:#827b80;text-align:center;}
+#shared-playlist .track-title{font-size:.95rem;line-height:1.45;}
+#shared-playlist .track-file{font-size:.7rem;letter-spacing:.04em;color:#8f878d;}
+#shared-playlist .track-controls{display:flex;justify-content:flex-end;align-items:center;min-width:0;}
+#shared-playlist .track-controls .track-toggle{width:42px;height:42px;min-width:42px;padding:0;display:grid;place-items:center;line-height:0;border:1px solid #ffffff25;border-radius:50%;background:linear-gradient(145deg,#343034,#1b1a1b);color:#fff;font-size:.95rem;box-shadow:0 5px 14px #0004;transition:transform .2s ease,background .2s,border-color .2s;}
+#shared-playlist #azuraPlaylist .track-toggle{border-color:#d5a7c544;}
+#shared-playlist #poirotPlaylist .track-toggle{border-color:#9bbce044;}
+#shared-playlist .track-toggle:hover{transform:scale(1.06);background:#444;}
+#shared-playlist .track-toggle svg{display:block;flex:none;overflow:visible;}
+#shared-playlist .track-row.is-playing .track-toggle{background:linear-gradient(145deg,#e50914,#9d0710);border-color:#ff6b72;color:#fff;}
+#shared-playlist #poirotPlaylist .track-row.is-playing .track-toggle{background:linear-gradient(145deg,#91b5e4,#49668f);border-color:#c3dafa;color:#101722;}
+#shared-playlist .track-row.is-buffering .track-title:after{content:" · buffering";font-size:.7rem;color:#e0b66a;font-weight:500;}
+#shared-playlist .track-controls audio{display:none!important;}
+@media(max-width:700px){#shared-playlist .playlist-list{padding:13px;border-radius:14px}#shared-playlist .track-row{grid-template-columns:28px minmax(0,1fr) 42px;gap:9px;padding:12px 9px}#shared-playlist .track-title{font-size:.87rem}#shared-playlist .track-controls .track-toggle{width:38px;height:38px;min-width:38px}#shared-playlist .playlist-cover{height:190px;border-radius:10px}#shared-playlist .playlist-cover-label{left:13px;bottom:12px}}
+
+
+/* Our Tiny Wrapped — Spotify Wrapped-inspired memory slides. Images keep their original aspect ratio. */
+.wrapped-memories{position:relative;display:grid;grid-template-columns:1fr;gap:18px;margin-top:clamp(30px,5vw,58px)}
+.wrapped-memory{min-width:0;overflow:hidden;border:1px solid #ffffff30;border-radius:13px;background:#101010d9;box-shadow:0 16px 42px #0003}
+.wrapped-memory-copy{padding:clamp(18px,3vw,30px) clamp(18px,3vw,34px) 20px}
+.wrapped-memory-copy small{display:block;color:#fef08a;font-size:.67rem;font-weight:850;letter-spacing:.16em;text-transform:uppercase}
+.wrapped-memory-copy h3{font-size:clamp(1.65rem,4vw,2.7rem);line-height:.98;letter-spacing:-.055em;margin:10px 0 12px}
+.wrapped-memory-copy p{max-width:720px;color:#f0f0f0;font-size:.95rem;line-height:1.65;margin:0}
+.wrapped-memory img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;object-position:center;background:#090909;content-visibility:visible}
+.wrapped-memory-aristotle{background:linear-gradient(135deg,#173f36,#101010 72%)}
+.wrapped-memory-call{background:linear-gradient(135deg,#552a72,#151018 72%)}
+.wrapped-memory-joke{background:linear-gradient(135deg,#7b3c16,#15100d 72%)}
+@media(min-width:820px){.wrapped-memory{display:grid;grid-template-columns:minmax(240px,.72fr) minmax(0,1fr);align-items:start}.wrapped-memory-copy{position:sticky;top:18px}.wrapped-memory img{align-self:start}}
+@media(max-width:700px){.wrapped-page{padding:22px 16px}.wrapped-cards{grid-template-columns:1fr}.wrapped-card{min-height:0}.wrapped-memory-copy{padding:18px 16px 16px}.wrapped-memory img{width:100%;height:auto}}
+
+</style>
+</head>
+<body class="home-page picker-open">
+<div class="profile-picker" id="profilePicker" aria-label="Who's watching">
+  <h2>Who's watching?</h2>
+  <div class="profile-options">
+    <button class="profile-choice" type="button" data-profile="Hercule Poirot"><img src="https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/HerculePoirot2.jpg" alt="Hercule Poirot profile"><span>Hercule Poirot</span></button>
+    <button class="profile-choice" type="button" data-profile="Azura Bell"><img src="https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/AzuraBell2.jpg" alt="Azura Bell profile"><span>Azura Bell</span></button>
+  </div>
+  <p class="picker-note">Belloir · Choose who's watching</p>
+</div>
+<div id="brandSplash" aria-hidden="true"><span>Belloir</span></div>
+<header class="nav" id="topNav">
+  <a class="brand" href="#home" aria-label="Belloir — Home">Belloir</a>
+  <nav class="navlinks" id="navLinks" aria-label="Navigasi utama">
+    <a href="#home">Home</a><a href="#collection">Our Memories</a><a href="#counter">Our Timeline</a><a href="#wrapped">Wrapped</a><a href="#bucket-list">Bucket List</a><a href="#shared-playlist">Our Playlist</a><a href="#azura-picks">Movie Picks</a><a href="#supporting-cast">The Supporting Cast</a><a href="#somewhere-in-a-song">Somewhere In A Song</a><a href="#about">A Few Things</a>
+  </nav>
+  <div class="navright">
+    <button class="iconbtn" id="musicToggle" aria-label="Aktifkan musik" title="Musik"><span id="musicIcon">♫</span></button>
+    <div class="audio-pill blocked" id="audioStatus" aria-live="polite"><span class="audio-dot"></span><span class="audio-text" id="audioLabel">Menyiapkan musik</span></div>
+    <button class="menu-btn" id="menuBtn" aria-label="Buka menu navigasi" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<section class="hero" id="home" aria-labelledby="heroTitle">
+  <img class="hero-photo" id="heroPhoto" src="https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/Cover.jpg" alt="Foto sampul dari koleksi kenangan" fetchpriority="high" decoding="async" width="1600" height="900">
+  <div class="hero-content">
+    <p class="eyebrow">A small collection, made with care</p>
+    <h1 id="heroTitle">A Little Place<br>Called Us</h1>
+    <p class="hero-copy">You have bewitched me, body and soul, and I love, I love, I love you.You only get one life. It's actually your duty to live it as fully as possible.</p>
+    <div class="hero-actions">
+      <button class="btn btn-primary" id="playStory"><span class="play-triangle" aria-hidden="true"></span> Play Our Story</button>
+      <a class="btn btn-secondary" href="#collection"><span aria-hidden="true">⌄</span> Explore Memories</a>
+    </div>
+    <p class="hero-note">A little place to revisit, whenever you feel like it.</p>
+  </div>
+</section>
+
+<main>
+  <section class="section reveal" id="collection">
+    <div class="section-head"><h2>Our Memories</h2><p>A single collection of moments worth keeping.</p></div>
+    <div class="row-shell"><button class="row-arrow left" aria-label="Geser ke kiri" data-rail="rail-main" data-dir="-1">‹</button><div class="rail" id="rail-main" aria-label="Our Memories"></div><button class="row-arrow right" aria-label="Geser ke kanan" data-rail="rail-main" data-dir="1">›</button></div>
+  </section>
+  <div class="empty-state" id="assetHelp">
+    <strong>Daftar foto belum terisi.</strong><br>
+    Website mencoba menemukan foto langsung dari repositori publik. Jika GitHub API tidak bisa diakses, isi daftar <code>MANUAL_ASSETS</code> di bagian JavaScript dengan URL <code>raw.githubusercontent.com</code> yang sudah kamu verifikasi. Tidak ada nama file foto yang ditebak.
+    <div id="assetStatus">Mencari aset...</div>
+  </div>
+
+  <section class="feature-section reveal" id="counter">
+    <div class="feature-heading"><div><span class="kicker">A little time, a lot of memories</span><h2>Since The Day We Met</h2><p>Tempat pengingat sudah berapa lama sejak kita pertama kali kenal. Di bawahnya ada next milestone pertama, hari ulang tahun Azura Bell.</p></div></div>
+    <div class="counter-layout">
+      <article class="counter-card"><p class="counter-label">Days since we first met · 21 July 2026</p><div class="digits" aria-live="off"><div class="digit"><strong id="sinceDays">—</strong><span>Days</span></div><div class="digit"><strong id="sinceHours">—</strong><span>Hours</span></div><div class="digit"><strong id="sinceMinutes">—</strong><span>Minutes</span></div><div class="digit"><strong id="sinceSeconds">—</strong><span>Seconds</span></div></div></article>
+      <article class="counter-card"><span class="kicker">Next Milestone</span><p class="countdown-date">Azura's Birthday · 19 June 2027</p><div class="digits"><div class="digit"><strong id="birthDays">—</strong><span>Days</span></div><div class="digit"><strong id="birthHours">—</strong><span>Hours</span></div><div class="digit"><strong id="birthMinutes">—</strong><span>Minutes</span></div><div class="digit"><strong id="birthSeconds">—</strong><span>Seconds</span></div></div></article>
+    </div>
+  </section>
+
+  <section class="feature-section reveal" id="wrapped">
+    <div class="feature-heading"><div><span class="kicker">The unofficial little recap</span><h2>Our Tiny Wrapped</h2><p>Aku update Wrapped ini setiap bulan nantinya. Page ini buat flashback interaksi kita selama satu bulan.</p></div></div>
+    <div class="wrapped-page">
+      <div class="wrapped-topline"><span>OUR OCTOBER</span><span>THE INTERACTIONS EDITION</span></div>
+      <div class="wrapped-title">Our month<span>in moments.</span></div>
+      <div class="wrapped-footer"><span>ONE MONTH AT A TIME.</span><span>MADE TO BE REVISITED ↗</span></div>
+      <div class="wrapped-memories" aria-label="Three moments from our monthly recap">
+        <article class="wrapped-memory wrapped-memory-aristotle">
+          <div class="wrapped-memory-copy"><small>THE UNEXPECTED PHILOSOPHY</small><h3>Talking About Aris</h3><p>Setelah ngomongin topik konyol, tiba-tiba kami malah jadi philosopher. Out of nowhere, obrolan berbelok ke teori-teorinya si Aris.</p></div>
+          <img src="https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/Aristotle.jpg" alt="Percakapan tentang kutipan persahabatan yang dikaitkan dengan Aristotle" loading="eager" fetchpriority="high" decoding="async">
+        </article>
+        <article class="wrapped-memory wrapped-memory-call">
+          <div class="wrapped-memory-copy"><small>THE RARE STABLE CALL</small><h3>A Moment on Call</h3><p>Durasi call yang tumben nggak reconnecting. Biasanya IndiHome sensi kalau kami call—sebetulnya sinyal saya yang sering RTO, Azura nggak.</p></div>
+          <img src="https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/Call1.jpg" alt="Potret yang tersimpan dari momen call" loading="eager" fetchpriority="high" decoding="async">
+        </article>
+        <article class="wrapped-memory wrapped-memory-joke">
+          <div class="wrapped-memory-copy"><small>CHARACTER DEVELOPMENT</small><h3>Certified Inside Joke</h3><p>For the very first time, admin latihan untuk tidak menggunakan dialog Jakarta🥸 Agak gugup, jujur saja.</p></div>
+          <img src="https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/InsideJokes%281%29.jpg" alt="Percakapan berisi lelucon internal dan voice note" loading="eager" fetchpriority="high" decoding="async">
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature-section reveal" id="bucket-list">
+    <div class="feature-heading"><div><span class="kicker">To-do, but make it ours</span><h2>Poirot &amp; Azura's Bucket List</h2><p>“Epic” bucket list yang kita bikin ini semoga bisa tercapai satu per satu. Tentu yang beneran wishlist yaaa, bukan wishlist anomali.</p></div></div>
+    <div class="wishlist-frame" id="wishlistFrame">
+      <img class="wishlist-image" id="wishlistImage" alt="Wishlist" loading="eager" fetchpriority="high" decoding="async">
+      
+    </div>
+  </section>
+
+  <section class="feature-section reveal" id="shared-playlist">
+    <div class="feature-heading"><div><span class="kicker">Press play, when we're ready</span><h2>Our Shared Playlist</h2><p>Playlist kami berdua, kayanya sih ini top 10. Bisa di play juga kalo mau (kayanya agak buffering tergantung jaringan) Tadinya admin mau masukin full album Avenged Sevenfold, tapi ga muat</p></div></div>
+    <div id="azuraPlaylist" class="playlist-list"><div class="feature-empty"><strong>Loading Azura's tracks…</strong>Memindai file audio dari repository.</div></div>
+    <div id="poirotPlaylist" class="playlist-list playlist-second"><div class="feature-empty"><strong>Loading Poirot's tracks…</strong>Memindai file audio dari repository.</div></div>
+  </section>
+
+  <section class="feature-section reveal" id="azura-picks">
+    <div class="feature-heading"><div><h2>Movie Recommendation</h2></div></div>
+    <div class="movie-owner"><span class="kicker">01 / AZURA'S SCREENING ROOM</span><h3>Azura's Movie List</h3><div class="movie-grid" id="azuraMovies"></div></div>
+    <div class="movie-owner"><span class="kicker">02 / POIROT'S SCREENING ROOM</span><h3>Poirot's Movie List</h3><div class="movie-grid" id="poirotMovies"></div></div>
+  </section>
+
+  <section class="feature-section reveal supporting-cast-section" id="supporting-cast">
+    <div class="feature-heading"><div><span class="kicker">The people around our story</span><h2>The Supporting Cast</h2><p>Every story has familiar faces beyond the main characters. Here are a few of the people who share the frame.</p></div></div>
+    <div class="cast-grid">
+      <article class="cast-card"><div class="cast-photo"><img src="https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/Stella(1).jpg" alt="Kira" fetchpriority="high" loading="eager" decoding="async"></div><div class="cast-info"><span class="cast-index">01 / SUPPORTING CAST</span><h3>Kira</h3></div></article>
+      <article class="cast-card"><div class="cast-photo"><img src="https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/AsaBabymonster.jpg" alt="Aisley" fetchpriority="high" loading="eager" decoding="async"></div><div class="cast-info"><span class="cast-index">02 / SUPPORTING CAST</span><h3>Aisley</h3></div></article>
+      <article class="cast-card"><div class="cast-photo"><img src="https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/Juhoon.jpg" alt="Jean" loading="eager" decoding="async"></div><div class="cast-info"><span class="cast-index">03 / SUPPORTING CAST</span><h3>Jean</h3></div></article>
+      <article class="cast-card"><div class="cast-photo"><img src="https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/Juun.jpg" alt="Loreen" loading="eager" decoding="async"></div><div class="cast-info"><span class="cast-index">04 / SUPPORTING CAST</span><h3>Loreen</h3></div></article>
+      <article class="cast-card"><div class="cast-photo"><img src="https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/Minsi.jpg" alt="Cluvssieran" loading="eager" decoding="async"></div><div class="cast-info"><span class="cast-index">05 / SUPPORTING CAST</span><h3>Cluvssieran</h3></div></article>
+      <article class="cast-card"><div class="cast-photo"><img src="https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/DPRIan.jpg" alt="Alex" loading="eager" decoding="async"></div><div class="cast-info"><span class="cast-index">06 / SUPPORTING CAST</span><h3>Alex</h3></div></article>
+      <article class="cast-card"><div class="cast-photo"><img src="https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/SongKang.jpg" alt="Lucifer" loading="eager" decoding="async"></div><div class="cast-info"><span class="cast-index">07 / SUPPORTING CAST</span><h3>Lucifer</h3></div></article>
+      <article class="cast-card"><div class="cast-photo"><img src="https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/Karina.jpg" alt="Regula" loading="eager" decoding="async"></div><div class="cast-info"><span class="cast-index">08 / SUPPORTING CAST</span><h3>Regula</h3></div></article>
+      <article class="cast-card"><div class="cast-photo"><img src="https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/Sullyoon.jpg" alt="Lumia" loading="eager" decoding="async"></div><div class="cast-info"><span class="cast-index">09 / SUPPORTING CAST</span><h3>Lumia</h3></div></article>
+    </div>
+  </section>
+
+  <section class="feature-section song-page" id="somewhere-in-a-song">
+    <div class="feature-heading"><div><span class="kicker">Somewhere, in the words of a song</span><h2>Somewhere In A Song</h2><p>Some lines stay with us a little longer than the song itself.</p></div></div>
+    <div class="song-gallery">
+      <figure class="song-art"><img src="https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/Gunslinger.jpg" alt="Gunslinger — Avenged Sevenfold" fetchpriority="high" loading="eager" decoding="async"></figure>
+      <figure class="song-art"><img src="https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/12.jpg" alt="Song lyric artwork 2" fetchpriority="high" loading="eager" decoding="async"></figure>
+      <figure class="song-art"><img src="https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/SailorSong.jpg" alt="Sailor Song" loading="eager" decoding="async"></figure>
+      <figure class="song-art"><img src="https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/Creep.jpg" alt="Creep" loading="eager" decoding="async"></figure>
+      <figure class="song-art"><img src="https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/RealHer.jpg" alt="Real Her" loading="eager" decoding="async"></figure>
+      <figure class="song-art"><img src="https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/Something.jpg" alt="Something" loading="eager" decoding="async"></figure>
+      <figure class="song-art"><img src="https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/Damn.jpg" alt="Damn" loading="eager" decoding="async"></figure>
+      <figure class="song-art"><img src="https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/Mind.jpg" alt="Mind" loading="eager" decoding="async"></figure>
+      <figure class="song-art"><img src="https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/Sweet.jpg" alt="Sweet" loading="eager" decoding="async"></figure>
+    </div>
+  </section>
+
+  <section class="intro-grid reveal" id="about">
+    <div>
+      <span class="intro-kicker">A few things about you</span>
+      <h2>For the little things that make you, you.</h2>
+      <p>Azura, this space isn't trying to make a big speech. It's just a small reminder that the little moments, the random photos, and the things that make us smile can have their own place.</p>
+      <p>Semoga halaman kecil ini bikin kamu senyum, even if just for a second. That's already enough.</p>
+    </div>
+    <aside class="note-card">
+      <p>“No big occasion needed. Some people and moments are simply worth keeping close.”</p>
+      <small>— made with care, by Hercule Poirot</small>
+    </aside>
+  </section>
+
+  <section class="continue reveal" id="continues">
+    <div>
+      <span class="intro-kicker">The story continues</span>
+      <h2>And there’s more<br>to come.</h2>
+      <p>Koleksi ini belum selesai. Masih ada foto yang belum dimasukkan, lagu yang belum diputar, dan cerita random yang mungkin baru terasa penting setelah waktunya lewat.</p>
+      <button class="btn btn-primary" id="replayFromEnd"><span class="play-triangle" aria-hidden="true"></span> Play Our Story</button>
+    </div>
+  </section>
+</main>
+<footer class="footer"><span><strong>Belloir</strong> · A Little Place Called Us</span><span>Made with care by Hercule Poirot, for Azura Bell.</span></footer>
+
+<audio id="backgroundMusic" preload="auto" loop playsinline></audio>
+
+<div class="overlay" id="viewer" role="dialog" aria-modal="true" aria-label="Penampil foto fullscreen">
+  <div class="overlay-top"><span class="overlay-title" id="viewerTitle">A Little Place Called Us</span><button class="close" id="closeViewer" aria-label="Tutup viewer">×</button></div>
+  <div class="viewer-stage" id="viewerStage"><img id="viewerImgA" alt="Foto kenangan" draggable="false"><img id="viewerImgB" alt="Foto kenangan" draggable="false"></div>
+  <div class="viewer-caption"><span id="viewerCounter">0 / 0</span><span class="viewer-description" id="viewerDescription"></span><div class="viewer-actions"><button class="mini-btn" id="pauseSlideshow" hidden>Ⅱ Pause</button><button class="mini-btn" id="replaySlideshow" hidden>↻ Replay</button></div></div>
+  <div class="progress"><span id="viewerProgress"></span></div>
+  <div class="end-card" id="endCard"><div><p class="eyebrow">Until next time</p><h2>And there are still more memories to make.</h2><p>For now, this little collection is yours to revisit anytime.</p><div class="end-actions"><button class="btn btn-primary" id="replayButton">↻ Replay the story</button><button class="btn btn-secondary" id="exploreButton">Explore memories</button></div></div></div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+  "use strict";
+
+  const REPO_OWNER = "Belloir-Us";
+  const REPO_NAME = "MijnLiefie";
+  let REPO_BRANCH = "main"; // Updated from GitHub repository metadata when the API is available.
+
+  // Fallback manifest: tambahkan hanya URL aset yang sudah diverifikasi dari repo.
+  // Format: { url: "https://raw.githubusercontent.com/OWNER/REPO/BRANCH/path/file.jpg", type: "image" }
+  // Audio yang ditemukan otomatis juga dicoba sebagai musik latar.
+  const MANUAL_ASSETS = [
+    { url: "https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/AzuraBell1.jpg", type: "image" },
+    { url: "https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/Cover.jpg", type: "image" },
+    { url: "https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/HerculePoirot1.jpg", type: "image" },
+    { url: "https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/InteraksiPertama(2).jpg", type: "image" },
+    { url: "https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/InteraksiPertama.jpg", type: "image" },
+    { url: "https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/Puisi1.png", type: "image" },
+    { url: "https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/Puisi2.jpg", type: "image" },
+    { url: "https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/US.jpg", type: "image" },
+    { url: "https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/Belloir%281%29.jpg", type: "image" },
+    { url: "https://cdn.jsdelivr.net/gh/Belloir-Us/MijnLiefie@main/images/Belloir%282%29.jpg", type: "image" }
+  ];
+
+  const PHOTO_STORIES = {
+    "AzuraBell1.jpg": { title: "A Frame of Azura", description: "Main Character, sekaligus alasan website ini diciptakan. Kayanya semua orang setuju kalo Azura itu galak, kalo belum kenal. Tapi setelah kenal, beliau ini hangat kok." },
+    "HerculePoirot1.jpg": { title: "Me, Hercule Poirot", description: "Ga ada yang spesial sih, cuma mau masukin aja ke galeri website ini" },
+    "InteraksiPertama.jpg": { title: "The First Page", description: "Iya, ini lah interaksi pertama kami berdua di grup. Aku belum pernah liat Azura sebelumnya, jadi waktu pertama Azura minta email, aku ga kasih (trauma jir)" },
+    "InteraksiPertama(2).jpg": { title: "Misunderstood", description: "Disini kayanya Azura salah paham, padahal maksud dan tujuan nya bukan buat beliau ini. Tapi gapapa, kalo ga salah paham mungkin ga bisa kaya sekarang hehe." },
+    "Cover.jpg": { title: "Our First Yule Ball", description: "Foto ini waktu kita Yule Ball pertama kali. Ini ide Azura order manips buat dikirim ke Hall Yule Ball, bagus kan?" },
+    "US.jpg": { title: "Us, In Our Own Way", description: "Ini manips kedua, memang agak nyosor ya konsepnya. Ini kayanya ilham dari editor nya dibikin rapat-rapat begini. Tapi bagus juga hasil nya" },
+    "Puisi2.jpg": { title: "Azura's Poem", description: "Nah, ini puisi yang Azura kasih ke aku waktu aku ulang tahun. Ga perlu ditanya sebagus apa. Waktu baca ini, aku kayanya kena serangan jantung kecil" },
+    "Puisi1.png": { title: "Poirot's Poem", description: "Ini salah satu dari sekian banyak puisi yang aku tulis. Anyway, semua yang ada di puisi ini ditulis berdasarkan realita" },
+    "Belloir(1).jpg": { title: "Belloir Scene", description: "Manips kesekian yang di order, setelah kami menikah di RC🥸" },
+    "Belloir(2).jpg": { title: "Gaze", description: "Yang ini bonus dari seller, katanya agak malu ya si pria itu. Makanya ngelirik ke samping🥸" }
+  };
+
+  const $ = (id) => document.getElementById(id);
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const imageExt = /\.(avif|bmp|gif|jpe?g|png|webp)$/i;
+  const audioExt = /\.(mp3|m4a|aac|ogg|oga|wav|flac|opus|webm|mp4|aiff|aif)$/i;
+  const state = {
+    images: [], audio: [], activeIndex: 0, current: 0, timer: null, running: false,
+    paused: false, isSlideshow: false, visibleSlot: "A", lastFocus: null, objectUrls: []
+  };
+  let toastTimer = null;
+  let profileRequestedMusic = false;
+
+  function showToast(message) {
+    const toast = $("toast");
+    toast.textContent = message;
+    toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove("show"), 3200);
+  }
+  function setAudioStatus(text, blocked = false) {
+    $("audioLabel").textContent = text;
+    $("audioStatus").classList.toggle("blocked", blocked);
+    $("musicToggle").setAttribute("aria-label", blocked ? "Aktifkan musik" : "Jeda atau lanjutkan musik");
+    $("musicIcon").textContent = blocked ? "♫" : ($("backgroundMusic").paused ? "♫" : "Ⅱ");
+  }
+  function rawUrl(path) {
+    return `https://cdn.jsdelivr.net/gh/${REPO_OWNER}/${REPO_NAME}@${REPO_BRANCH}/${path.split("/").map(encodeURIComponent).join("/")}`;
+  }
+  function isRepoUrl(url) {
+    try {
+      const u = new URL(url);
+      return (u.hostname === "raw.githubusercontent.com" && u.pathname.startsWith(`/${REPO_OWNER}/${REPO_NAME}/`)) || (u.hostname === "cdn.jsdelivr.net" && u.pathname.startsWith(`/gh/${REPO_OWNER}/${REPO_NAME}@`));
+    } catch { return false; }
+  }
+  function normalizeAssets(items) {
+    const seen = new Set(), images = [], audio = [];
+    for (const item of items) {
+      if (!item || typeof item.url !== "string") continue;
+      const url = item.url;
+      if (!isRepoUrl(url) || seen.has(url)) continue;
+      seen.add(url);
+      const path = new URL(url).pathname;
+      if (item.type === "audio" || audioExt.test(path)) audio.push({url, name: decodeURIComponent(path.split("/").pop())});
+      else if (item.type === "image" || imageExt.test(path)) images.push({url, name: decodeURIComponent(path.split("/").pop())});
+    }
+    return {images, audio};
+  }
+  function applyAssets(items) {
+    const normalized = normalizeAssets(items);
+    if (!normalized.images.length && !normalized.audio.length) return;
+    const memoryOrder = ["AzuraBell1.jpg", "HerculePoirot1.jpg", "InteraksiPertama.jpg", "InteraksiPertama(2).jpg", "Cover.jpg", "US.jpg", "Puisi2.jpg", "Puisi1.png", "Belloir(1).jpg", "Belloir(2).jpg"];
+    const rank = new Map(memoryOrder.map((name, index) => [name.toLowerCase(), index]));
+    normalized.images.sort((a, b) => (rank.get(a.name.toLowerCase()) ?? 999) - (rank.get(b.name.toLowerCase()) ?? 999));
+    state.images = normalized.images;
+    state.audio = normalized.audio;
+    renderGalleries();
+    setHeroImage();
+    $("assetStatus").textContent = `Memuat ${state.images.length} foto dari koleksi.`;
+  }
+  function discoverRepoAssets() {
+    // Galeri Home dikunci pada delapan foto asli ini. Jangan pernah menambah/mengurangi dari hasil pencarian repo.
+    applyAssets(MANUAL_ASSETS);
+    $("assetStatus").textContent = `Memuat ${state.images.length} foto galeri asli.`;
+  }
+  function setHeroImage() {
+    const heroImage = $("heroPhoto");
+    if (!state.images.length) {
+      heroImage.removeAttribute("src");
+      heroImage.alt = "Sampul koleksi kenangan belum tersedia";
+      return;
+    }
+    const cover = state.images.find(item => item.name.toLowerCase() === "cover.jpg") || state.images[0];
+    heroImage.loading = "eager";
+    heroImage.fetchPriority = "high";
+    heroImage.decoding = "async";
+    heroImage.onload = () => heroImage.classList.add("loaded");
+    heroImage.onerror = () => {
+      heroImage.classList.remove("loaded");
+      heroImage.alt = "Foto sampul tidak dapat dimuat";
+    };
+    heroImage.src = cover.url;
+  }
+  function storyFor(item) {
+    return PHOTO_STORIES[item.name] || { title: "A Moment Worth Keeping", description: "A little piece of the story, saved here to be remembered in its own time." };
+  }
+  function makeCard(item, index, kind) {
+    const button = document.createElement("button");
+    button.className = "photo-card " + (item.height > item.width * 1.18 ? "portrait" : "wide");
+    button.type = "button";
+    button.setAttribute("aria-label", `Buka foto ${index + 1}: ${item.name}`);
+    const img = document.createElement("img");
+    img.alt = item.name;
+    img.decoding = "async";
+    // Start loading the complete gallery immediately instead of waiting for horizontal scrolling.
+    img.loading = "eager";
+    img.fetchPriority = "high";
+    img.src = item.url;
+    img.onload = () => { button.classList.toggle("portrait", img.naturalHeight > img.naturalWidth * 1.18); button.classList.toggle("wide", !(img.naturalHeight > img.naturalWidth * 1.18)); };
+    img.onerror = () => { img.alt = storyFor(item).title + " — gambar belum berhasil dimuat"; button.classList.add("image-unavailable"); };
+    const label = document.createElement("span");
+    label.className = "card-label";
+    const story = storyFor(item);
+    label.textContent = story.title;
+    const sub = document.createElement("span");
+    sub.className = "card-sub";
+    sub.textContent = story.description;
+    button.append(img, sub, label);
+    button.addEventListener("click", () => openViewer(index, false));
+    return button;
+  }
+  function renderGalleries() {
+    const rail = $("rail-main");
+    rail.replaceChildren();
+    if (!state.images.length) {
+      $("assetHelp").classList.add("visible");
+      return;
+    }
+    $("assetHelp").classList.remove("visible");
+    state.images.forEach((item, index) => rail.appendChild(makeCard(item, index, "collection")));
+  }
+  document.querySelectorAll(".row-arrow").forEach(button => {
+    button.addEventListener("click", () => {
+      const rail = $(button.dataset.rail);
+      rail.scrollBy({left: Number(button.dataset.dir) * rail.clientWidth * .82, behavior: reducedMotion ? "auto" : "smooth"});
+    });
+  });
+
+  async function attemptAutoplay() {
+    const audio = $("backgroundMusic");
+    if (!audio.src) { setAudioStatus("Tambahkan lagu", true); return; }
+    try {
+      audio.volume = 0.38;
+      await audio.play();
+      setAudioStatus("Musik diputar", false);
+    } catch {
+      setAudioStatus("Ketuk untuk musik", true);
+    }
+  }
+  $("musicToggle").addEventListener("click", async () => {
+    const audio = $("backgroundMusic");
+    if (!audio.src) {
+      showToast("Belum ada file audio yang terverifikasi di repositori.");
+      return;
+    }
+    try {
+      if (audio.paused) { await audio.play(); setAudioStatus("Musik diputar", false); }
+      else { audio.pause(); setAudioStatus("Musik dijeda", true); }
+    } catch { setAudioStatus("Ketuk untuk musik", true); showToast("Browser belum mengizinkan audio. Coba ketuk sekali lagi."); }
+  });
+  $("backgroundMusic").addEventListener("playing", () => setAudioStatus("Musik diputar", false));
+  $("backgroundMusic").addEventListener("pause", () => {
+    if ($("backgroundMusic").src) setAudioStatus("Musik dijeda", true);
+  });
+  $("backgroundMusic").addEventListener("error", () => {
+    if ($("backgroundMusic").src) { setAudioStatus("Audio tidak tersedia", true); showToast("File audio gagal dimuat. Periksa format dan URL di repositori."); }
+  });
+
+  function clearSlideshowTimer() {
+    if (state.timer !== null) { clearTimeout(state.timer); state.timer = null; }
+  }
+  function preloadNext(index) {
+    for (let offset = 1; offset <= 3; offset++) {
+      const item = state.images[index + offset];
+      if (!item) continue;
+      const img = new Image();
+      img.src = item.url;
+    }
+  }
+  function setViewerImage(index, animate = true) {
+    if (!state.images.length) return;
+    index = Math.max(0, Math.min(index, state.images.length - 1));
+    state.current = index;
+    const nextSlot = state.visibleSlot === "A" ? "B" : "A";
+    const nextImg = $(nextSlot === "A" ? "viewerImgA" : "viewerImgB");
+    const oldImg = $(state.visibleSlot === "A" ? "viewerImgA" : "viewerImgB");
+    nextImg.onload = () => {
+      oldImg.classList.remove("active");
+      nextImg.classList.add("active");
+      state.visibleSlot = nextSlot;
+    };
+    nextImg.onerror = () => {
+      nextImg.classList.remove("active");
+      if (state.isSlideshow && state.current < state.images.length - 1) scheduleNext();
+    };
+    nextImg.src = state.images[index].url;
+    if (nextImg.complete && nextImg.naturalWidth) {
+      oldImg.classList.remove("active");
+      nextImg.classList.add("active");
+      state.visibleSlot = nextSlot;
+    }
+    $("viewerCounter").textContent = `${index + 1} / ${state.images.length}`;
+    const story = storyFor(state.images[index]);
+    $("viewerTitle").textContent = story.title;
+    $("viewerDescription").textContent = story.description;
+    $("viewerProgress").style.width = `${((index + 1) / state.images.length) * 100}%`;
+    $("pauseSlideshow").hidden = !state.isSlideshow || index === state.images.length - 1;
+    $("replaySlideshow").hidden = state.isSlideshow && index !== state.images.length - 1;
+    $("endCard").classList.remove("show");
+    preloadNext(index);
+  }
+  function openViewer(index, slideshow) {
+    if (!state.images.length) {
+      showToast("Foto belum tersedia. Periksa akses repositori atau isi MANUAL_ASSETS.");
+      return;
+    }
+    clearSlideshowTimer();
+    state.lastFocus = document.activeElement;
+    state.isSlideshow = slideshow;
+    state.running = slideshow;
+    state.paused = false;
+    state.visibleSlot = "A";
+    $("viewerImgA").classList.remove("active");
+    $("viewerImgB").classList.remove("active");
+    $("viewer").classList.add("open");
+    $("viewer").setAttribute("aria-label", slideshow ? "Slideshow foto fullscreen" : "Penampil foto fullscreen");
+    document.body.classList.add("locked");
+    requestAnimationFrame(() => $("viewer").classList.add("shown"));
+    $("pauseSlideshow").textContent = "Ⅱ Pause";
+    $("viewerTitle").textContent = slideshow ? "Our Story · A little montage" : "A Little Place Called Us";
+    setViewerImage(index, false);
+    $("closeViewer").focus({preventScroll:true});
+    if (slideshow) scheduleNext();
+  }
+  function closeViewer() {
+    clearSlideshowTimer();
+    state.running = false;
+    state.paused = false;
+    state.isSlideshow = false;
+    $("viewer").classList.remove("shown");
+    document.body.classList.remove("locked");
+    setTimeout(() => {
+      $("viewer").classList.remove("open");
+      $("endCard").classList.remove("show");
+    }, reducedMotion ? 0 : 300);
+    if (state.lastFocus && typeof state.lastFocus.focus === "function") state.lastFocus.focus({preventScroll:true});
+  }
+  function scheduleNext() {
+    clearSlideshowTimer();
+    if (!state.isSlideshow || !state.running || state.paused) return;
+    if (state.current >= state.images.length - 1) {
+      finishSlideshow();
+      return;
+    }
+    // Slower montage so each photo has time to be seen.
+    state.timer = setTimeout(() => {
+      if (!state.isSlideshow || !state.running || state.paused) return;
+      setViewerImage(state.current + 1);
+      if (state.current >= state.images.length - 1) {
+        state.timer = setTimeout(finishSlideshow, 1450);
+      } else scheduleNext();
+    }, 1450);
+  }
+  function finishSlideshow() {
+    clearSlideshowTimer();
+    state.running = false;
+    state.paused = false;
+    $("pauseSlideshow").hidden = true;
+    $("replaySlideshow").hidden = false;
+    $("endCard").classList.add("show");
+  }
+  function startSlideshow() {
+    if ($("backgroundMusic").src && $("backgroundMusic").paused) attemptAutoplay();
+    if (!state.images.length) {
+      showToast("Belum ada foto yang berhasil dimuat. Coba lagi setelah repo dapat diakses.");
+      $("assetHelp").classList.add("visible");
+      $("assetHelp").scrollIntoView({behavior: reducedMotion ? "auto" : "smooth",block:"center"});
+      return;
+    }
+    openViewer(0, true);
+  }
+  $("playStory").addEventListener("click", startSlideshow);
+  $("replayFromEnd").addEventListener("click", startSlideshow);
+  $("closeViewer").addEventListener("click", closeViewer);
+  $("pauseSlideshow").addEventListener("click", () => {
+    state.paused = !state.paused;
+    state.running = !state.paused;
+    $("pauseSlideshow").textContent = state.paused ? "▶︎ Continue" : "Ⅱ Pause";
+    if (state.paused) clearSlideshowTimer(); else scheduleNext();
+  });
+  $("replaySlideshow").addEventListener("click", () => startSlideshow());
+  $("replayButton").addEventListener("click", startSlideshow);
+  $("exploreButton").addEventListener("click", () => { closeViewer(); setTimeout(() => $("collection").scrollIntoView({behavior: reducedMotion ? "auto" : "smooth"}), 50); });
+  $("viewer").addEventListener("click", e => {
+    if (e.target === $("viewer")) closeViewer();
+  });
+  // Swipe left/right to move through memories instead of on-screen Next/Back buttons.
+  let swipeStartX = 0, swipeStartY = 0;
+  $("viewerStage").addEventListener("touchstart", e => {
+    if (!e.touches || e.touches.length !== 1) return;
+    swipeStartX = e.touches[0].clientX;
+    swipeStartY = e.touches[0].clientY;
+  }, {passive:true});
+  $("viewerStage").addEventListener("touchend", e => {
+    if (state.isSlideshow || !e.changedTouches || !e.changedTouches.length) return;
+    const dx = e.changedTouches[0].clientX - swipeStartX;
+    const dy = e.changedTouches[0].clientY - swipeStartY;
+    if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy) * 1.25) return;
+    if (dx < 0 && state.current < state.images.length - 1) setViewerImage(state.current + 1);
+    else if (dx > 0 && state.current > 0) setViewerImage(state.current - 1);
+  }, {passive:true});
+  document.addEventListener("keydown", e => {
+    if (!$("viewer").classList.contains("open")) return;
+    if (e.key === "Escape") closeViewer();
+    if (!state.isSlideshow && e.key === "ArrowLeft" && state.current > 0) setViewerImage(state.current - 1);
+    if (!state.isSlideshow && e.key === "ArrowRight" && state.current < state.images.length - 1) setViewerImage(state.current + 1);
+    if (e.key === " " && state.isSlideshow) { e.preventDefault(); $("pauseSlideshow").click(); }
+  });
+
+  const nav = $("topNav");
+  window.addEventListener("scroll", () => nav.classList.toggle("scrolled", window.scrollY > 24), {passive:true});
+  $("menuBtn").addEventListener("click", () => {
+    const opened = $("navLinks").classList.toggle("open");
+    $("menuBtn").setAttribute("aria-expanded", String(opened));
+    $("menuBtn").setAttribute("aria-label", opened ? "Tutup menu navigasi" : "Buka menu navigasi");
+  });
+  $("navLinks").querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+    $("navLinks").classList.remove("open");
+    $("menuBtn").setAttribute("aria-expanded","false");
+  }));
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add("in"); observer.unobserve(entry.target); }
+    }), {threshold:.08});
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+  } else document.querySelectorAll(".reveal").forEach(el => el.classList.add("in"));
+
+  // Retry audible playback on the first user gesture when the browser blocks autoplay.
+  const unlockAudio = () => {
+    const audio = $("backgroundMusic");
+    if (audio.src && audio.paused) attemptAutoplay();
+    document.removeEventListener("pointerdown", unlockAudio);
+    document.removeEventListener("keydown", unlockAudio);
+  };
+  document.addEventListener("pointerdown", unlockAudio, {once:true, passive:true});
+  document.addEventListener("keydown", unlockAudio, {once:true});
+  function updateCounters() {
+    const now = new Date();
+    const firstMet = new Date(2026, 6, 21, 0, 0, 0); // local time: 21 July 2026
+    let elapsed = Math.max(0, now - firstMet);
+    const day = 86400000, hour = 3600000, minute = 60000;
+    const days = Math.floor(elapsed / day); elapsed %= day;
+    const hours = Math.floor(elapsed / hour); elapsed %= hour;
+    const minutes = Math.floor(elapsed / minute); const seconds = Math.floor((now - firstMet) / 1000) % 60;
+    $("sinceDays").textContent = String(days);
+    $("sinceHours").textContent = String(hours).padStart(2,"0");
+    $("sinceMinutes").textContent = String(minutes).padStart(2,"0");
+    $("sinceSeconds").textContent = String(seconds).padStart(2,"0");
+
+    let birthday = new Date(now.getFullYear(), 5, 19, 0, 0, 0);
+    if (birthday <= now) birthday = new Date(now.getFullYear() + 1, 5, 19, 0, 0, 0);
+    let remaining = birthday - now;
+    const bDays = Math.floor(remaining / day); remaining %= day;
+    const bHours = Math.floor(remaining / hour); remaining %= hour;
+    const bMinutes = Math.floor(remaining / minute); const bSeconds = Math.floor((birthday - now) / 1000) % 60;
+    $("birthDays").textContent = String(bDays);
+    $("birthHours").textContent = String(bHours).padStart(2,"0");
+    $("birthMinutes").textContent = String(bMinutes).padStart(2,"0");
+    $("birthSeconds").textContent = String(bSeconds).padStart(2,"0");
+  }
+  updateCounters();
+  setInterval(updateCounters, 1000);
+
+  // Checklist progress stays local to this browser; nothing is sent anywhere.
+  document.querySelectorAll("[data-bucket]").forEach(input => {
+    const key = `belloir-bucket-${input.dataset.bucket}`;
+    try { input.checked = localStorage.getItem(key) === "true"; } catch {}
+    input.addEventListener("change", () => {
+      try { localStorage.setItem(key, String(input.checked)); } catch {}
+    });
+  });
+
+
+  // Separate client-side pages; the home gallery remains its original section.
+  const pageIds=["counter","wrapped","bucket-list","shared-playlist","azura-picks","supporting-cast","somewhere-in-a-song","about"];
+  const pageMeta={home:["A Little Place Called Us","A small collection, made with care."],counter:["Since The Day We Met","Tempat pengingat sudah berapa lama sejak kita pertama kali kenal. Di bawahnya ada next milestone pertama, hari ulang tahun Azura Bell."],wrapped:["Our Tiny Wrapped","Aku update Wrapped ini setiap bulan nantinya. Page ini buat flashback interaksi kita selama satu bulan."],"bucket-list":["Poirot & Azura’s Bucket List","“Epic” bucket list yang kita bikin ini semoga bisa tercapai satu per satu. Tentu yang beneran wishlist yaaa, bukan wishlist anomali."],"shared-playlist":["Our Shared Playlist","Playlist kami berdua, kayanya sih ini top 10. Bisa di play juga kalo mau (kayanya agak buffering tergantung jaringan) Tadinya admin mau masukin full album Avenged Sevenfold, tapi ga muat"],"azura-picks":["Movie Recommendation",""],"supporting-cast":["The Supporting Cast","The people around our story, each with a place in the frame."],"somewhere-in-a-song":["Somewhere In A Song","Some lines stay with us a little longer than the song itself."],about:["A Few Things","A small note, without making a big speech."]};
+  const routeHeading=document.createElement("section");routeHeading.className="page-heading";routeHeading.innerHTML='<span class="kicker">BELLOIR · A LITTLE PLACE TO REVISIT</span><h1></h1><p></p>';document.querySelector("main").prepend(routeHeading);
+  function routePage(){const wanted=(location.hash||"#home").slice(1),page=["home",...pageIds].includes(wanted)?wanted:"home";
+    const main=document.querySelector("main");main.classList.remove("route-enter");routeHeading.classList.remove("route-enter");
+    document.body.classList.remove("home-page",...pageIds.map(x=>"page-"+x));document.body.classList.add(page==="home"?"home-page":"page-"+page);
+    routeHeading.style.display=page==="home"?"none":"block";routeHeading.querySelector("h1").textContent=pageMeta[page][0];routeHeading.querySelector("p").textContent=pageMeta[page][1];routeHeading.querySelector("p").hidden=!pageMeta[page][1];
+    pageIds.forEach(id=>$(id).classList.toggle("page-hidden",id!==page));
+    void main.offsetWidth;main.classList.add("route-enter");if(page!=="home")routeHeading.classList.add("route-enter");
+    window.scrollTo({top:0,behavior:reducedMotion?"auto":"smooth"});
+  }
+  window.addEventListener("hashchange",routePage);routePage();
+  document.querySelectorAll(".profile-choice").forEach(button=>button.addEventListener("click",()=>{profileRequestedMusic=true;const audio=$("backgroundMusic");if(audio.src)attemptAutoplay();const picker=$("profilePicker"),splash=$("brandSplash");try{sessionStorage.setItem("belloir-profile",button.dataset.profile)}catch{}if(reducedMotion){picker.remove();document.body.classList.remove("picker-open");document.body.classList.add("home-revealing");return}picker.classList.add("leaving");splash.classList.add("active");setTimeout(()=>{picker.remove();splash.remove();document.body.classList.remove("picker-open");document.body.classList.add("home-revealing");setTimeout(()=>document.body.classList.remove("home-revealing"),900)},2650)}));
+
+  const movieReviews={azura:[
+    {title:"Avatar: The Last Airbender",rating:"1000000/10",review:"i love the concept soooooo much, apalagi aku penggemar filosofi, kosmologi, dan sistem kepercayaan tradisional. eventho the series has ended, the fans are still waiting for a sequel (funfact: mau ada series avatar baru, namanya pavi). sumber series ini tuh banyak bgt krn awalnya dr komik jd banyak bgt info yg masih bisa digali (LOVE IT).",keys:["avatar"]},
+    {title:"Doraemon",rating:"1000000/10 juga",review:"jujur aku amaze sama the way penulisnya combine fungsi barang dgn bentuk fisik barang, misal senter pembesar, like how is that even possible? udah gitu barangnya ada BANYAK BGT. film-film nya juga beragam (walau basically premise nya sama semua huft). but still, kl nonton series nya tuh berasa ringan.",keys:["doraemon"]},
+    {title:"When life gives you tangerines",rating:"1000000/10",review:"drama yg isinya FULL OF LOVE. iya, cinta ke orang tua, ke pasangan, bahkan ke diri sendiri. walau setting waktu nya jadul, tp tetep menghadirkan sisi feminisme nya (i love it). drama ini tuh definisi LEGA, sama kaya judul koreanya yaitu 폭삭 속았수다 (pokssak sogassuda), artinya you've done well.",keys:["tangerine","when life","폭삭"]}
+  ],poirot:[
+    {title:"Oppenheimer",rating:"9.5/10",review:"Film gila, 180 menit sama sekali ga berasa disini. Aku suka banget sama cara nolan memvisualisasikan pikiran fisikawan sama dilema moral yang dialami oppenheimer pas nyiptain bom atom. visualisasi ledakan trinity dan efek suara pas adegan heningnya tuh bikin merinding studio. cast-nya juga ga main-main (cillian murphy, robert downey jr, emily blunt, florence pugh), akting cillian murphy disini bener-bener dapat banget emosi rasa bersalahnya.",keys:["oppenheimer"]},
+    {title:"One Piece",rating:"9999999999999999/10",review:"Anime yang jujur takjub banget sama world-building nya yang super duper masif dan rapi. Absolute Cinema by Eiichiro Oda Sensei. Walau episode animenya udah ribuan dan pacingnya kadang agak lambat, tapi One Piece udah bareng aku dari SD. Bisa dibilang salah satu alasan aku buat hidup juga, biar bisa liat ending nya",keys:["one piece","onepiece"]},
+    {title:"Me Before You",rating:"8.5/10",review:"Ini film pemakai. Awalnya doang bikin cengar cengir. Chemistry Emilia Clarke (yang ekspresif dan ceria banget) sama Sam Claflin tuh keliatan natural. Aku suka gimana film ini ngangkat isu pilihan hidup orang lain. Pas banget buat masochist ini film",keys:["me before you","mebeforeyou"]}
+  ]};
+  const cleanName=name=>name.replace(/\.[^.]+$/,"").replace(/_/g," ").replace(/\s+/g," ").trim();
+  const formatTrackLabel=filename=>{
+    const cleaned=cleanName(filename);
+    const lower=cleaned.toLowerCase();
+    if(lower.includes("the next right thing")) return "The Next Right Thing-Kristen Bell";
+    if(lower.includes("written in your heart")) return "Written In Your Heart-Barbie As The Princess And The Pauper";
+    // Normalize an existing title/artist separator without destroying hyphens inside titles.
+    return cleaned.replace(/\s+(?:-|–|—)\s+/g,"—").replace(/\s*—\s*/g,"—");
+  };
+  function renderMovies(files){
+    const imgs=files.filter(f=>/\.(jpe?g|png|webp|avif)$/i.test(f.path));
+    function draw(id,list){
+      const root=$(id);root.replaceChildren();
+      list.forEach(m=>{
+        const f=imgs.find(x=>m.keys.some(k=>cleanName(x.path.split("/").pop()).toLowerCase().includes(k)));
+        const card=document.createElement("article");card.className="movie-card";
+        const poster=document.createElement("img");poster.className="movie-poster";poster.alt=m.title+" poster";poster.loading="eager";poster.fetchPriority="high";poster.decoding="async";
+        if(f){poster.src=rawUrl(f.path);poster.onerror=()=>{poster.removeAttribute("src");poster.alt=m.title+" poster unavailable";poster.classList.add("poster-missing");};}
+        else {poster.alt=m.title+" poster not found in images folder";poster.classList.add("poster-missing");}
+        const copy=document.createElement("div");copy.className="movie-copy";
+        const h=document.createElement("h4");h.textContent=m.title;const r=document.createElement("p");r.className="movie-rating";r.textContent=m.rating;
+        const review=document.createElement("p");review.className="movie-review";review.textContent=m.review;
+        copy.append(h,r,review);card.append(poster,copy);root.append(card)
+      })
+    }
+    draw("azuraMovies",movieReviews.azura);draw("poirotMovies",movieReviews.poirot)
+  }
+  const audioExtRE=/\.(mp3|m4a|aac|ogg|oga|wav|flac|opus|webm|mp4|aiff|aif)$/i;
+  const playlistLoaded={azura:false,poirot:false};
+  let activePlaylistAudio=null;
+  const fmtTime=value=>{if(!Number.isFinite(value)||value<0)return "0:00";const m=Math.floor(value/60),sec=Math.floor(value%60);return m+":"+String(sec).padStart(2,"0")};
+  function playlistSourceCandidates(path, directUrl){
+    const encoded=path.split("/").map(encodeURIComponent).join("/");
+    // Use a CDN URL first and keep direct GitHub URLs as fallbacks.
+    return [
+      `https://cdn.jsdelivr.net/gh/${REPO_OWNER}/${REPO_NAME}@${REPO_BRANCH}/${encoded}`,
+      rawUrl(path),
+      ...(directUrl ? [directUrl] : []),
+      `https://media.githubusercontent.com/media/${REPO_OWNER}/${REPO_NAME}/${REPO_BRANCH}/${encoded}`,
+      `https://github.com/${REPO_OWNER}/${REPO_NAME}/raw/refs/heads/${REPO_BRANCH}/${encoded}`
+    ].filter((url, index, list) => url && list.indexOf(url) === index);
+  }
+  function drawPlaylist(id,title,tracks){
+    const root=$(id);root.replaceChildren();
+    const isAzura=id==="azuraPlaylist";
+    const h=document.createElement("h3");h.className="playlist-owner-title";h.textContent=title;root.append(h);
+    if(!tracks.length){const empty=document.createElement("div");empty.className="feature-empty";empty.innerHTML='<strong>Belum ada lagu yang terbaca</strong>Pastikan file audio di folder ini sudah di-commit dan memakai format yang didukung browser, seperti MP3.';root.append(empty);return}
+    tracks.sort((a,b)=>a.path.localeCompare(b.path,undefined,{numeric:true,sensitivity:"base"}));
+    tracks.forEach((t,i)=>{
+      const row=document.createElement("div");row.className="track-row";
+      const n=document.createElement("span");n.className="track-index";n.textContent=String(i+1).padStart(2,"0");
+      const meta=document.createElement("div"),name=document.createElement("div"),sub=document.createElement("div");
+      name.className="track-title";name.textContent=formatTrackLabel(t.path.split("/").pop());sub.className="track-file";sub.textContent=title;meta.append(name,sub);
+      const controls=document.createElement("div");controls.className="track-controls";
+      const audio=document.createElement("audio");audio.preload="auto";audio.setAttribute("playsinline","");audio.setAttribute("crossorigin","anonymous");audio.setAttribute("aria-label","Pemutar audio: "+name.textContent);
+      const toggle=document.createElement("button");toggle.type="button";toggle.className="track-toggle";toggle.innerHTML='<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M7 4.8v14.4L19 12 7 4.8Z" fill="currentColor"/></svg>';toggle.setAttribute("aria-label","Putar "+name.textContent);toggle.title="Play";
+      const setToggleIcon=(playing)=>{toggle.innerHTML=playing?'<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" focusable="false"><path d="M6 5h4.5v14H6zM13.5 5H18v14h-4.5z" fill="currentColor"/></svg>':'<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M7 4.8v14.4L19 12 7 4.8Z" fill="currentColor"/></svg>';};
+      const sources=playlistSourceCandidates(t.path,t.url);let sourceIndex=0;audio._wantsPlayback=false;audio.src=sources[0];audio.load();
+      const setPausedUI=()=>{setToggleIcon(false);toggle.title="Play";toggle.setAttribute("aria-label","Putar "+name.textContent);row.classList.remove("is-playing","is-buffering");};
+      const stopBackgroundMusic=()=>{const bg=$("backgroundMusic");if(!bg.paused){bg.pause();setAudioStatus("Backsound dijeda untuk playlist",true);}};
+      const loadNextSource=()=>{sourceIndex++;if(sourceIndex>=sources.length){sub.textContent="File audio tidak dapat dimuat · coba lagi nanti";row.classList.remove("is-buffering");setPausedUI();return false;}audio.src=sources[sourceIndex];audio.load();return true;};
+      toggle.onclick=async()=>{
+        if(!audio.paused){audio._wantsPlayback=false;audio.pause();return;}
+        if(activePlaylistAudio&&activePlaylistAudio!==audio){activePlaylistAudio._wantsPlayback=false;activePlaylistAudio.pause();}
+        stopBackgroundMusic();
+        audio.preload="auto";
+        audio._wantsPlayback=true;setToggleIcon(true);toggle.title="Pause";toggle.setAttribute("aria-label","Jeda "+name.textContent);row.classList.add("is-playing");
+        try{await audio.play();activePlaylistAudio=audio;sub.textContent=title;}
+        catch(err){if(audio.error&&loadNextSource()){try{await audio.play();activePlaylistAudio=audio;}catch{setToggleIcon(false);toggle.title="Play";row.classList.remove("is-playing");}}else if(!audio.error){sub.textContent="Lagu sedang disiapkan…";row.classList.add("is-buffering");}}
+      };
+      audio.addEventListener("play",()=>{
+        stopBackgroundMusic();
+        if(activePlaylistAudio&&activePlaylistAudio!==audio)activePlaylistAudio.pause();
+        activePlaylistAudio=audio;setToggleIcon(true);toggle.title="Pause";toggle.setAttribute("aria-label","Jeda "+name.textContent);row.classList.add("is-playing");sub.textContent=title;
+      });
+      audio.addEventListener("pause",()=>{setPausedUI();if(activePlaylistAudio===audio)activePlaylistAudio=null;});
+      audio.addEventListener("waiting",()=>{if(!audio.paused){sub.textContent="Memuat audio…";row.classList.add("is-buffering");}});
+      audio.addEventListener("playing",()=>{row.classList.remove("is-buffering");sub.textContent=title;setToggleIcon(true);toggle.title="Pause";});
+      audio.addEventListener("ended",()=>{audio._wantsPlayback=false;setPausedUI();if(activePlaylistAudio===audio)activePlaylistAudio=null;});
+      audio.addEventListener("error",()=>{
+        if(sourceIndex<sources.length-1){if(loadNextSource()&&audio._wantsPlayback)audio.play().then(()=>{activePlaylistAudio=audio;}).catch(()=>{});}
+        else{audio._wantsPlayback=false;sub.textContent="File audio tidak dapat dibaca browser";setPausedUI();}
+      });
+      controls.append(toggle,audio);row.append(n,meta,controls);root.append(row);
+    });
+  }
+  function renderPlaylists(files){
+    const all=files.filter(f=>audioExtRE.test(f.path));
+    if(!playlistLoaded.azura)drawPlaylist("azuraPlaylist","Azura's Playlist",all.filter(f=>/^Playlist Azura\//i.test(f.path)));
+    if(!playlistLoaded.poirot)drawPlaylist("poirotPlaylist","Poirot's Playlist",all.filter(f=>/^Playlist Poirot\//i.test(f.path)));
+  }
+  async function loadPlaylistFolder(folder,id,title,key){
+    try{
+      const url=`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${encodeURIComponent(folder)}?ref=${REPO_BRANCH}`;
+      const response=await fetch(url,{headers:{Accept:"application/vnd.github+json"},cache:"force-cache"});
+      if(!response.ok)throw new Error("Playlist folder unavailable");
+      const entries=await response.json();
+      if(!Array.isArray(entries))throw new Error("Unexpected folder response");
+      const tracks=entries.filter(item=>item.type==="file"&&audioExtRE.test(item.name)).map(item=>({path:item.path,url:rawUrl(item.path)}));
+      playlistLoaded[key]=true;drawPlaylist(id,title,tracks);
+    }catch(error){
+      // The repository tree request below is a fallback, so the page still works if a folder endpoint is unavailable.
+    }
+  }
+  loadPlaylistFolder("Playlist Azura","azuraPlaylist","Azura's Playlist","azura");
+  loadPlaylistFolder("Playlist Poirot","poirotPlaylist","Poirot's Playlist","poirot");
+  function renderWishlist(files){
+    const image=files.find(f=>f.path.split("/").pop().toLowerCase()==="wishlist.png");
+    const frame=$("wishlistFrame"),img=$("wishlistImage");
+    if(!image){frame.innerHTML='<div class="feature-empty"><strong>Wishlist.png belum ditemukan</strong>Pastikan file tersebut sudah di-commit ke branch main.</div>';return}
+    img.src=rawUrl(image.path);img.onerror=()=>{frame.innerHTML='<div class="feature-empty"><strong>Wishlist.png gagal dimuat</strong>Periksa apakah file di GitHub dapat diakses secara publik.</div>';};
+  }
+  function setBackgroundAudio(files){
+    const tracks=files.filter(f=>/^audio\//i.test(f.path)&&/\.(mp3|m4a|aac|ogg|oga|wav|flac|opus|webm|mp4|aiff|aif)$/i.test(f.path));
+    const audio=$("backgroundMusic");
+    if(!tracks.length){setAudioStatus("Backsound belum ditemukan",true);return}
+    audio.preload="auto";audio.src=rawUrl(tracks[0].path);audio.load();setAudioStatus("Menyiapkan musik",true);if(profileRequestedMusic)attemptAutoplay()
+  }
+  fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/git/trees/${REPO_BRANCH}?recursive=1`,{headers:{Accept:"application/vnd.github+json"}})
+    .then(r=>{if(!r.ok)throw Error("GitHub asset listing unavailable");return r.json()})
+    .then(d=>{if(!Array.isArray(d.tree))throw Error("Invalid GitHub tree");const files=d.tree.filter(x=>x.type==="blob").map(x=>({path:x.path}));renderPlaylists(files);renderMovies(files);renderWishlist(files);setBackgroundAudio(files)})
+    .catch(()=>{
+      renderPlaylists([]);renderMovies([]);renderWishlist([]);setAudioStatus("Backsound belum bisa dimuat",true);
+      showToast("Daftar aset GitHub gagal dimuat. Pastikan repositori publik dan file sudah di-commit.")
+    });
+
+  // Gallery is restricted to the original explicit image manifest; repository additions never enter it.
+  discoverRepoAssets();
+})();
+</script>
+</body>
+</html>
